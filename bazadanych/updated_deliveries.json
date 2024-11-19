@@ -1,0 +1,37 @@
+[
+    {
+        "_id": { "$oid": "673bd1cc6a99d388f0bc813a" },
+        "order_id": { "$oid": "673bd0c56a99d3912c9f48ea" },
+        "delivery_date": "2024-11-20T19:41:28.900007",
+        "supplier_id": { "$oid": "673bd1806a99d36b30e420d3" },
+        "delivery_status": "delayed"
+    },
+    {
+        "_id": { "$oid": "673bd1cc6a99d388f0bc813b" },
+        "order_id": { "$oid": "673bd0c56a99d3912c9f48eb" },
+        "delivery_date": "2024-11-20T19:41:28.900467",
+        "supplier_id": { "$oid": "673bd1806a99d36b30e420d1" },
+        "delivery_status": "delivered"
+    },
+    {
+        "_id": { "$oid": "673bd1cc6a99d388f0bc813c" },
+        "order_id": { "$oid": "673bd0c56a99d3912c9f48ec" },
+        "delivery_date": "2024-11-20T19:41:28.900833",
+        "supplier_id": { "$oid": "673bd1806a99d36b30e420d1" },
+        "delivery_status": "delivered"
+    },
+    {
+        "_id": { "$oid": "673bd1cc6a99d388f0bc813d" },
+        "order_id": { "$oid": "673bd0c56a99d3912c9f48ed" },
+        "delivery_date": "2024-11-20T19:41:28.900965",
+        "supplier_id": { "$oid": "673bd1806a99d36b30e420d2" },
+        "delivery_status": "being_delivered"
+    },
+    {
+        "_id": { "$oid": "673bd1cc6a99d388f0bc813e" },
+        "order_id": { "$oid": "673bd0c56a99d3912c9f48f0" },
+        "delivery_date": "2024-11-20T19:41:28.901363",
+        "supplier_id": { "$oid": "673bd1806a99d36b30e420d2" },
+        "delivery_status": "being_delivered"
+    }
+]

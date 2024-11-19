@@ -1,0 +1,352 @@
+[
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8f9" },
+        "name": "Smartfon OnePlus 9",
+        "description": "Opis produktu smartfon oneplus 9",
+        "price": 831.45,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8fa" },
+        "name": "Mikrofon do telefonu",
+        "description": "Opis produktu mikrofon do telefonu",
+        "price": 790.27,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8fb" },
+        "name": "Smartfon Xiaomi Mi 11",
+        "description": "Opis produktu smartfon xiaomi mi 11",
+        "price": 1301.58,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8fc" },
+        "name": "Przej\u015bci\u00f3wka Jack/USB-C",
+        "description": "Opis produktu przej\u015bci\u00f3wka jack/usb-c",
+        "price": 352.17,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8fd" },
+        "name": "Szk\u0142o hartowane",
+        "description": "Opis produktu szk\u0142o hartowane",
+        "price": 1354.53,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8fe" },
+        "name": "Szk\u0142o hartowane",
+        "description": "Opis produktu szk\u0142o hartowane",
+        "price": 713.28,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc8ff" },
+        "name": "Powerbank",
+        "description": "Opis produktu powerbank",
+        "price": 1453.57,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc900" },
+        "name": "Czy\u015bcik do ekran\u00f3w",
+        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
+        "price": 590.33,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc901" },
+        "name": "Powerbank",
+        "description": "Opis produktu powerbank",
+        "price": 65.57,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc902" },
+        "name": "Szk\u0142o hartowane",
+        "description": "Opis produktu szk\u0142o hartowane",
+        "price": 223.02,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc903" },
+        "name": "Folia ochronna",
+        "description": "Opis produktu folia ochronna",
+        "price": 1258.82,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc904" },
+        "name": "Czy\u015bcik do ekran\u00f3w",
+        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
+        "price": 550.1,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc905" },
+        "name": "Mikrofon do telefonu",
+        "description": "Opis produktu mikrofon do telefonu",
+        "price": 668.42,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc906" },
+        "name": "S\u0142uchawki bezprzewodowe",
+        "description": "Opis produktu s\u0142uchawki bezprzewodowe",
+        "price": 843.09,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc907" },
+        "name": "Uchwyt samochodowy",
+        "description": "Opis produktu uchwyt samochodowy",
+        "price": 743.32,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc908" },
+        "name": "Etui na telefon",
+        "description": "Opis produktu etui na telefon",
+        "price": 587.04,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc909" },
+        "name": "Folia ochronna",
+        "description": "Opis produktu folia ochronna",
+        "price": 860.21,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc90a" },
+        "name": "Uchwyt samochodowy",
+        "description": "Opis produktu uchwyt samochodowy",
+        "price": 939.99,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc90b" },
+        "name": "G\u0142o\u015bnik Bluetooth",
+        "description": "Opis produktu g\u0142o\u015bnik bluetooth",
+        "price": 645.61,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc90c" },
+        "name": "Przej\u015bci\u00f3wka Jack/USB-C",
+        "description": "Opis produktu przej\u015bci\u00f3wka jack/usb-c",
+        "price": 681.3,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc90d" },
+        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
+        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
+        "price": 1026.71,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc90e" },
+        "name": "Etui na telefon",
+        "description": "Opis produktu etui na telefon",
+        "price": 590.25,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc90f" },
+        "name": "Smartfon Xiaomi Mi 11",
+        "description": "Opis produktu smartfon xiaomi mi 11",
+        "price": 1025.0,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc910" },
+        "name": "Smartfon OnePlus 9",
+        "description": "Opis produktu smartfon oneplus 9",
+        "price": 1496.55,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc911" },
+        "name": "S\u0142uchawki bezprzewodowe",
+        "description": "Opis produktu s\u0142uchawki bezprzewodowe",
+        "price": 1101.67,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc912" },
+        "name": "Powerbank",
+        "description": "Opis produktu powerbank",
+        "price": 541.05,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc913" },
+        "name": "Smartfon Samsung Galaxy S21",
+        "description": "Opis produktu smartfon samsung galaxy s21",
+        "price": 1257.64,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc914" },
+        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
+        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
+        "price": 302.85,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc915" },
+        "name": "Mikrofon do telefonu",
+        "description": "Opis produktu mikrofon do telefonu",
+        "price": 809.13,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc916" },
+        "name": "Szk\u0142o hartowane",
+        "description": "Opis produktu szk\u0142o hartowane",
+        "price": 727.49,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc917" },
+        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
+        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
+        "price": 1348.12,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc918" },
+        "name": "Smartfon Xiaomi Mi 11",
+        "description": "Opis produktu smartfon xiaomi mi 11",
+        "price": 470.63,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc919" },
+        "name": "Smartfon Samsung Galaxy S21",
+        "description": "Opis produktu smartfon samsung galaxy s21",
+        "price": 1397.72,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc91a" },
+        "name": "Smartfon Huawei P40",
+        "description": "Opis produktu smartfon huawei p40",
+        "price": 470.8,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc91b" },
+        "name": "Smartfon OnePlus 9",
+        "description": "Opis produktu smartfon oneplus 9",
+        "price": 316.73,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc91c" },
+        "name": "Przej\u015bci\u00f3wka Jack/USB-C",
+        "description": "Opis produktu przej\u015bci\u00f3wka jack/usb-c",
+        "price": 399.71,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc91d" },
+        "name": "Folia ochronna",
+        "description": "Opis produktu folia ochronna",
+        "price": 770.85,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc91e" },
+        "name": "Szk\u0142o hartowane",
+        "description": "Opis produktu szk\u0142o hartowane",
+        "price": 806.57,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc91f" },
+        "name": "Smartfon Xiaomi Mi 11",
+        "description": "Opis produktu smartfon xiaomi mi 11",
+        "price": 820.91,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc920" },
+        "name": "Uchwyt samochodowy",
+        "description": "Opis produktu uchwyt samochodowy",
+        "price": 818.23,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc921" },
+        "name": "Czy\u015bcik do ekran\u00f3w",
+        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
+        "price": 1469.77,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc922" },
+        "name": "\u0141adowarka indukcyjna",
+        "description": "Opis produktu \u0142adowarka indukcyjna",
+        "price": 299.75,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc923" },
+        "name": "Powerbank",
+        "description": "Opis produktu powerbank",
+        "price": 661.66,
+        "category": "akcesoria_do_telefonow"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc924" },
+        "name": "G\u0142o\u015bnik Bluetooth",
+        "description": "Opis produktu g\u0142o\u015bnik bluetooth",
+        "price": 333.88,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc925" },
+        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
+        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
+        "price": 1275.6,
+        "category": "akcesoria_ekranowe"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc926" },
+        "name": "Adapter audio bezprzewodowy",
+        "description": "Opis produktu adapter audio bezprzewodowy",
+        "price": 425.41,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc927" },
+        "name": "Mikrofon do telefonu",
+        "description": "Opis produktu mikrofon do telefonu",
+        "price": 534.78,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc928" },
+        "name": "Adapter audio bezprzewodowy",
+        "description": "Opis produktu adapter audio bezprzewodowy",
+        "price": 249.1,
+        "category": "akcesoria_audio"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc929" },
+        "name": "Smartfon Xiaomi Mi 11",
+        "description": "Opis produktu smartfon xiaomi mi 11",
+        "price": 417.8,
+        "category": "telefony"
+    },
+    {
+        "_id": { "$oid": "673bc2b66a99d385ac2bc92a" },
+        "name": "Czy\u015bcik do ekran\u00f3w",
+        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
+        "price": 339.76,
+        "category": "akcesoria_ekranowe"
+    }
+]

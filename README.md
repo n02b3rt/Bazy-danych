@@ -10,76 +10,34 @@ Reprezentuje produkty w systemie.
 
 ```javascript
 db.createCollection("products", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["name", "price", "reorder_level", "inventory"],
-      properties: {
-        name: {
-          bsonType: "string",
-          description: "Product name is required."
-        },
-        description: {
-          bsonType: "string",
-          description: "Product description must be a string."
-        },
-        price: {
-          bsonType: "number",
-          description: "Product price is required and must be a number."
-        },
-        supplier: {
-          bsonType: "object",
-          properties: {
-            supplier_id: {
-              bsonType: "objectId",
-              description: "Supplier ID must be an ObjectId."
-            },
-            name: {
-              bsonType: "string",
-              description: "Supplier name is required."
-            },
-            contact_person: {
-              bsonType: "string",
-              description: "Contact person name must be a string."
-            },
-            phone_number: {
-              bsonType: "string",
-              description: "Phone number must be a string."
-            },
-            email: {
-              bsonType: "string",
-              description: "Email must be a string."
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "description", "price", "category"],
+            properties: {
+                _id: {
+                    bsonType: "objectId",
+                    description: "Unique identifier for the product."
+                },
+                name: {
+                    bsonType: "string",
+                    description: "Product name is required and must be a string."
+                },
+                description: {
+                    bsonType: "string",
+                    description: "Product description is required and must be a string."
+                },
+                price: {
+                    bsonType: "number",
+                    description: "Product price is required and must be a number."
+                },
+                category: {
+                    bsonType: "string",
+                    description: "Product category is required and must be a string."
+                }
             }
-          }
-        },
-        reorder_level: {
-          bsonType: "number",
-          description: "Reorder level is required and must be a number."
-        },
-        inventory: {
-          bsonType: "object",
-          required: ["quantity", "last_updated"],
-          properties: {
-            quantity: {
-              bsonType: "number",
-              description: "Inventory quantity must be a number."
-            },
-            last_updated: {
-              bsonType: "date",
-              description: "Last updated timestamp must be a date."
-            }
-          }
-        },
-        categories: {
-          bsonType: "array",
-          items: {
-            bsonType: "string"
-          },
-          description: "Array of product categories."
         }
-      }
     }
-  }
 });
 ```
 
@@ -89,42 +47,45 @@ Reprezentuje dostawców produktów.
 
 ```javascript
 db.createCollection("suppliers", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["name"],
-      properties: {
-        name: {
-          bsonType: "string",
-          description: "Supplier name is required."
-        },
-        contact_person: {
-          bsonType: "string",
-          description: "Contact person name must be a string."
-        },
-        phone_number: {
-          bsonType: "string",
-          description: "Phone number must be a string."
-        },
-        email: {
-          bsonType: "string",
-          description: "Email must be a string."
-        },
-        address: {
-          bsonType: "string",
-          description: "Address must be a string."
-        },
-        products_supplied: {
-          bsonType: "array",
-          items: {
-            bsonType: "objectId",
-            description: "Array of product IDs supplied by the supplier."
-          },
-          description: "Array of supplied product IDs."
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "contact_person", "phone_number", "email", "delivery_status"],
+            properties: {
+                _id: {
+                    bsonType: "objectId",
+                    description: "Unique identifier for the supplier."
+                },
+                name: {
+                    bsonType: "string",
+                    description: "Supplier name is required and must be a string."
+                },
+                contact_person: {
+                    bsonType: "string",
+                    description: "Contact person name is required and must be a string."
+                },
+                phone_number: {
+                    bsonType: "string",
+                    description: "Phone number is required and must be a string."
+                },
+                email: {
+                    bsonType: "string",
+                    description: "Email is required and must be a string."
+                },
+                delivery_status: {
+                    bsonType: "string",
+                    description: "Delivery status is required and must be a string."
+                },
+                linked_orders: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "objectId"
+                    },
+                    description: "Array of linked orders' IDs."
+                }
+            }
         }
-      }
     }
-  }
 });
 ```
 
@@ -135,63 +96,53 @@ Reprezentuje zamówienia złożone przez firmę.
 
 ```javascript
 db.createCollection("orders", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["supplier_id", "total_amount", "order_items"],
-      properties: {
-        supplier_id: {
-          bsonType: "objectId",
-          description: "Supplier ID must be an ObjectId."
-        },
-        order_date: {
-          bsonType: "date",
-          description: "Order date must be a valid date."
-        },
-        status: {
-          bsonType: "string",
-          enum: ["pending", "completed", "cancelled"],
-          description: "Order status must be one of the predefined values."
-        },
-        total_amount: {
-          bsonType: "number",
-          description: "Total amount is required and must be a number."
-        },
-        order_items: {
-          bsonType: "array",
-          items: {
+    validator: {
+        $jsonSchema: {
             bsonType: "object",
-            required: ["product_id", "name", "quantity", "price"],
+            required: ["user_id", "order_items", "warehouse_status", "completed_status"],
             properties: {
-              product_id: {
-                bsonType: "objectId",
-                description: "Product ID must be an ObjectId."
-              },
-              name: {
-                bsonType: "string",
-                description: "Product name is required."
-              },
-              quantity: {
-                bsonType: "number",
-                description: "Quantity is required and must be a number."
-              },
-              price: {
-                bsonType: "number",
-                description: "Price is required and must be a number."
-              }
+                _id: {
+                    bsonType: "objectId",
+                    description: "Unique identifier for the order."
+                },
+                user_id: {
+                    bsonType: "objectId",
+                    description: "User ID is required and must be an ObjectId."
+                },
+                order_items: {
+                    bsonType: "array",
+                    items: {
+                        bsonType: "object",
+                        required: ["product_id", "quantity"],
+                        properties: {
+                            product_id: {
+                                bsonType: "objectId",
+                                description: "Product ID is required and must be an ObjectId."
+                            },
+                            quantity: {
+                                bsonType: "number",
+                                description: "Quantity is required and must be a number."
+                            }
+                        }
+                    },
+                    description: "List of items in the order."
+                },
+                warehouse_status: {
+                    bsonType: "string",
+                    description: "Warehouse status is required and must be a string."
+                },
+                assigned_worker_id: {
+                    bsonType: "objectId",
+                    description: "Assigned worker's ID must be an ObjectId."
+                },
+                completed_status: {
+                    bsonType: "string",
+                    description: "Completion status is required and must be a string."
+                }
             }
-          },
-          description: "Array of items in the order."
-        },
-        expected_delivery_date: {
-          bsonType: "date",
-          description: "Expected delivery date must be a valid date."
         }
-      }
     }
-  }
 });
-
 ```
 
 
@@ -201,53 +152,36 @@ Reprezentuje dostawy produktów.
 
 ```javascript
 db.createCollection("deliveries", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["order_id", "delivery_date", "received_by", "products_received"],
-      properties: {
-        order_id: {
-          bsonType: "objectId",
-          description: "Order ID must be an ObjectId."
-        },
-        delivery_date: {
-          bsonType: "date",
-          description: "Delivery date is required and must be a valid date."
-        },
-        received_by: {
-          bsonType: "string",
-          description: "Received by is required and must be a string."
-        },
-        products_received: {
-          bsonType: "array",
-          items: {
+    validator: {
+        $jsonSchema: {
             bsonType: "object",
-            required: ["product_id", "name", "quantity"],
+            required: ["order_id", "delivery_date", "supplier_id", "delivery_status"],
             properties: {
-              product_id: {
-                bsonType: "objectId",
-                description: "Product ID must be an ObjectId."
-              },
-              name: {
-                bsonType: "string",
-                description: "Product name is required."
-              },
-              quantity: {
-                bsonType: "number",
-                description: "Quantity is required and must be a number."
-              }
+                _id: {
+                    bsonType: "objectId",
+                    description: "Unique identifier for the delivery."
+                },
+                order_id: {
+                    bsonType: "objectId",
+                    description: "Order ID is required and must be an ObjectId."
+                },
+                delivery_date: {
+                    bsonType: "date",
+                    description: "Delivery date is required and must be a date."
+                },
+                supplier_id: {
+                    bsonType: "objectId",
+                    description: "Supplier ID is required and must be an ObjectId."
+                },
+                delivery_status: {
+                    bsonType: "string",
+                    description: "Delivery status is required and must be a string."
+                }
             }
-          },
-          description: "Array of received products."
-        },
-        warehouse_location: {
-          bsonType: "string",
-          description: "Warehouse location must be a string."
         }
-      }
     }
-  }
 });
+
 ```
 
 
@@ -257,55 +191,59 @@ Reprezentuje użytkowników systemu.
 
 ```javascript
 db.createCollection("users", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["name", "email", "password_hash"],
-      properties: {
-        name: {
-          bsonType: "string",
-          description: "User name is required."
-        },
-        email: {
-          bsonType: "string",
-          description: "Email is required and must be unique."
-        },
-        password_hash: {
-          bsonType: "string",
-          description: "Password hash is required."
-        },
-        role: {
-          bsonType: "string",
-          enum: ["admin", "warehouse_manager"],
-          description: "User role must be either 'admin' or 'warehouse_manager'."
-        },
-        activity_log: {
-          bsonType: "array",
-          items: {
+    validator: {
+        $jsonSchema: {
             bsonType: "object",
-            required: ["action", "timestamp"],
+            required: ["name", "surname", "email", "password_hash", "role", "date_of_birth", "start_date", "personal_id", "address", "phone_number"],
             properties: {
-              action: {
-                bsonType: "string",
-                description: "Action taken by the user."
-              },
-              timestamp: {
-                bsonType: "date",
-                description: "Timestamp of the action."
-              },
-              details: {
-                bsonType: "string",
-                description: "Optional details about the action."
-              }
+                _id: {
+                    bsonType: "objectId",
+                    description: "Unique identifier for the user."
+                },
+                name: {
+                    bsonType: "string",
+                    description: "User's first name is required and must be a string."
+                },
+                surname: {
+                    bsonType: "string",
+                    description: "User's last name is required and must be a string."
+                },
+                email: {
+                    bsonType: "string",
+                    description: "Email is required and must be a string."
+                },
+                password_hash: {
+                    bsonType: "string",
+                    description: "Password hash is required and must be a string."
+                },
+                role: {
+                    bsonType: "string",
+                    description: "Role is required and must be a string, e.g., 'warehouse_manager'."
+                },
+                date_of_birth: {
+                    bsonType: "date",
+                    description: "Date of birth is required and must be a date."
+                },
+                start_date: {
+                    bsonType: "date",
+                    description: "Start date is required and must be a date."
+                },
+                personal_id: {
+                    bsonType: "string",
+                    description: "Personal ID is required and must be a string."
+                },
+                address: {
+                    bsonType: "string",
+                    description: "User's address is required and must be a string."
+                },
+                phone_number: {
+                    bsonType: "string",
+                    description: "Phone number is required and must be a string."
+                }
             }
-          },
-          description: "Log of user activities."
         }
-      }
     }
-  }
 });
-
 ```
 
 
@@ -314,57 +252,26 @@ db.createCollection("users", {
 Reprezentuje stany magazynowe produktów.
 
 ```javascript
-db.createCollection("inventories", {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["product_id", "warehouse"],
-      properties: {
-        product_id: {
-          bsonType: "objectId",
-          description: "Product ID must be an ObjectId."
-        },
-        warehouse: {
-          bsonType: "string",
-          description: "Warehouse name is required."
-        },
-        quantity: {
-          bsonType: "number",
-          description: "Quantity is required and must be a number."
-        },
-        last_updated: {
-          bsonType: "date",
-          description: "Last updated timestamp must be a date."
-        },
-        logs: {
-          bsonType: "array",
-          items: {
+db.createCollection("inventory", {
+    validator: {
+        $jsonSchema: {
             bsonType: "object",
-            required: ["date", "action", "quantity_change", "new_quantity"],
+            required: ["product_id", "quantity", "sector"],
             properties: {
-              date: {
-                bsonType: "date",
-                description: "Date of the log entry."
-              },
-              action: {
-                bsonType: "string",
-                description: "Action taken in the inventory."
-              },
-              quantity_change: {
-                bsonType: "number",
-                description: "Change in quantity must be a number."
-              },
-              new_quantity: {
-                bsonType: "number",
-                description: "New quantity after the action."
-              }
+                product_id: {
+                    bsonType: "objectId",
+                    description: "Product ID is required and must be an ObjectId."
+                },
+                quantity: {
+                    bsonType: "number",
+                    description: "Quantity is required and must be a number."
+                },
+                sector: {
+                    bsonType: "string",
+                    description: "Sector is required and must be a string."
+                }
             }
-          },
-          description: "Array of logs documenting inventory changes."
         }
-      }
     }
-  }
 });
-
 ```

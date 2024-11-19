@@ -1,0 +1,252 @@
+[
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8f9" },
+        "quantity": 168,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8fa" },
+        "quantity": 145,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8fb" },
+        "quantity": 157,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8fc" },
+        "quantity": 162,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8fd" },
+        "quantity": 95,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8fe" },
+        "quantity": 142,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc8ff" },
+        "quantity": 66,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc900" },
+        "quantity": 169,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc901" },
+        "quantity": 57,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc902" },
+        "quantity": 165,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc903" },
+        "quantity": 157,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc904" },
+        "quantity": 158,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc905" },
+        "quantity": 122,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc906" },
+        "quantity": 52,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc907" },
+        "quantity": 159,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc908" },
+        "quantity": 65,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc909" },
+        "quantity": 53,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc90a" },
+        "quantity": 115,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc90b" },
+        "quantity": 70,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc90c" },
+        "quantity": 181,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc90d" },
+        "quantity": 69,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc90e" },
+        "quantity": 186,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc90f" },
+        "quantity": 181,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc910" },
+        "quantity": 56,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc911" },
+        "quantity": 77,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc912" },
+        "quantity": 54,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc913" },
+        "quantity": 84,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc914" },
+        "quantity": 150,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc915" },
+        "quantity": 70,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc916" },
+        "quantity": 76,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc917" },
+        "quantity": 78,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc918" },
+        "quantity": 110,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc919" },
+        "quantity": 99,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc91a" },
+        "quantity": 110,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc91b" },
+        "quantity": 136,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc91c" },
+        "quantity": 72,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc91d" },
+        "quantity": 118,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc91e" },
+        "quantity": 100,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc91f" },
+        "quantity": 114,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc920" },
+        "quantity": 190,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc921" },
+        "quantity": 179,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc922" },
+        "quantity": 89,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc923" },
+        "quantity": 164,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc924" },
+        "quantity": 115,
+        "sector": "Sector D"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc925" },
+        "quantity": 98,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc926" },
+        "quantity": 110,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc927" },
+        "quantity": 69,
+        "sector": "Sector B"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc928" },
+        "quantity": 171,
+        "sector": "Sector A"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc929" },
+        "quantity": 159,
+        "sector": "Sector C"
+    },
+    {
+        "product_id": { "$oid": "673bc2b66a99d385ac2bc92a" },
+        "quantity": 136,
+        "sector": "Sector B"
+    }
+]

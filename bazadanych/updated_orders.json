@@ -1,0 +1,270 @@
+[
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48ea" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850d0"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc8fb"
+                },
+                "quantity": 12
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc904"
+                },
+                "quantity": 20
+            }
+        ],
+        "warehouse_status": "ready_to_ship",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850cc"
+        },
+        "completed_status": "completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48eb" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850d1"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc907"
+                },
+                "quantity": 12
+            }
+        ],
+        "warehouse_status": "ready_to_ship",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850c8"
+        },
+        "completed_status": "completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48ec" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850d0"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc905"
+                },
+                "quantity": 19
+            }
+        ],
+        "warehouse_status": "ready_to_ship",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850ce"
+        },
+        "completed_status": "completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48ed" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850cf"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc922"
+                },
+                "quantity": 16
+            }
+        ],
+        "warehouse_status": "ready_to_ship",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850c9"
+        },
+        "completed_status": "completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48ee" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850c3"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc916"
+                },
+                "quantity": 2
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc91d"
+                },
+                "quantity": 2
+            }
+        ],
+        "warehouse_status": "replenishing",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850ca"
+        },
+        "completed_status": "not_completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48ef" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850d1"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc912"
+                },
+                "quantity": 8
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc90d"
+                },
+                "quantity": 10
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc914"
+                },
+                "quantity": 14
+            }
+        ],
+        "warehouse_status": "pending",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850ca"
+        },
+        "completed_status": "not_completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48f0" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850d1"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc8fc"
+                },
+                "quantity": 19
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc918"
+                },
+                "quantity": 13
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc91e"
+                },
+                "quantity": 17
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc8fe"
+                },
+                "quantity": 1
+            }
+        ],
+        "warehouse_status": "ready_to_ship",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850ce"
+        },
+        "completed_status": "completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48f1" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850d0"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc90b"
+                },
+                "quantity": 10
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc8fd"
+                },
+                "quantity": 20
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc8fa"
+                },
+                "quantity": 3
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc8f9"
+                },
+                "quantity": 9
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc91d"
+                },
+                "quantity": 20
+            }
+        ],
+        "warehouse_status": "assembling",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850ce"
+        },
+        "completed_status": "not_completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48f2" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850cf"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc91d"
+                },
+                "quantity": 12
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc925"
+                },
+                "quantity": 16
+            }
+        ],
+        "warehouse_status": "packing",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850cd"
+        },
+        "completed_status": "not_completed"
+    },
+    {
+        "_id": { "$oid": "673bd0c56a99d3912c9f48f3" },
+        "user_id": {
+            "$oid": "673bce5c6a99d392105850c4"
+        },
+        "order_items": [
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc920"
+                },
+                "quantity": 4
+            },
+            {
+                "product_id": {
+                    "$oid": "673bc2b66a99d385ac2bc91e"
+                },
+                "quantity": 11
+            }
+        ],
+        "warehouse_status": "replenishing",
+        "assigned_worker_id": {
+            "$oid": "673bce5c6a99d392105850c9"
+        },
+        "completed_status": "not_completed"
+    }
+]
