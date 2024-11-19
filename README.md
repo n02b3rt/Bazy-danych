@@ -9,7 +9,7 @@ Ten dokument przedstawia modele w formacie JSON dla bazy danych MongoDB. Modele 
 Reprezentuje produkty w systemie.
 
 ```javascript
-db.createCollection("products", {
+db.createCollection("users", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
