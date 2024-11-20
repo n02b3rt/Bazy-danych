@@ -35,22 +35,22 @@ export default function DashboardPage() {
 
     return (
         <div>
-            {user && (
-                <Header email={user.email} role={user.role} />
-            )}
-            <h1>Dashboard</h1>
-            {user ? (
-                <div>
-                    <p><strong>Imię:</strong> {user.name}</p>
-                    <p><strong>Nazwisko:</strong> {user.surname}</p>
-                    <p><strong>Rola:</strong> {user.role}</p>
-                    <p><strong>Data urodzenia:</strong> {user.date_of_birth}</p>
-                    <p><strong>Od kiedy pracuje:</strong> {user.start_date}</p>
-                    <p><strong>Numer telefonu:</strong> {user.phone_number}</p>
-                </div>
-            ) : (
-                <p>Nie udało się załadować danych użytkownika.</p>
-            )}
+            <Header email={user.email} role={user.role} />
+            {/*// {user && (*/}
+            {/*// )}*/}
+            {/*// <h1>Dashboard</h1>*/}
+            {/*// {user ? (*/}
+            {/*//     <div>*/}
+            {/*//         <p><strong>Imię:</strong> {user.name}</p>*/}
+            {/*//         <p><strong>Nazwisko:</strong> {user.surname}</p>*/}
+            {/*//         <p><strong>Rola:</strong> {user.role}</p>*/}
+            {/*//         <p><strong>Data urodzenia:</strong> {user.date_of_birth}</p>*/}
+            {/*//         <p><strong>Od kiedy pracuje:</strong> {user.start_date}</p>*/}
+            {/*//         <p><strong>Numer telefonu:</strong> {user.phone_number}</p>*/}
+            {/*//     </div>*/}
+            {/*// ) : (*/}
+            {/*//     <p>Nie udało się załadować danych użytkownika.</p>*/}
+            {/*// )}*/}
             {user && user.role === "warehouse_manager" && <WarehouseManager />}
             {user && user.role === "warehouse_worker" && <WarehouseWorker />}
             {user && user.role === "store_manager" && <StoreManager />}

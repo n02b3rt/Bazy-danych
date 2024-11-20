@@ -1,5 +1,9 @@
-
 export default function WarehouseManager() {
+
     return(
-        <p>WarehouseManager</p>
-        );}
+        <div>
+            <p>WarehouseManager</p>
+
+        </div>
+    );
+}
