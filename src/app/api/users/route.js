@@ -1,18 +1,9 @@
-import { MongoClient } from "mongodb";
-
-const uri = process.env.MONGODB_URI;
+import clientPromise from "@/lib/mongodb";
 
 export async function GET(request) {
-    if (!uri) {
-        return new Response(JSON.stringify({ error: "MONGODB_URI is not defined" }), {
-            status: 500,
-            headers: { "Content-Type": "application/json" },
-        });
-    }
-
-    const client = await MongoClient.connect(uri);
     try {
-        const db = client.db("Magazyn");
+        const client = await clientPromise; // Użycie istniejącego połączenia
+        const db = client.db("Magazyn"); // Połącz z bazą danych
 
         const users = await db.collection("users").find({}).toArray();
 
@@ -21,12 +12,10 @@ export async function GET(request) {
             headers: { "Content-Type": "application/json" },
         });
     } catch (error) {
-        console.error(error);
-        return new Response(JSON.stringify({ error: "Failed to fetch deliveries" }), {
+        console.error("User download error:", error);
+        return new Response(JSON.stringify({ error: "Failed to fetch users" }), {
             status: 500,
             headers: { "Content-Type": "application/json" },
         });
-    } finally {
-        await client.close();
     }
 }
