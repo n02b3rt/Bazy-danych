@@ -1,3 +1,73 @@
+# Instalacja i uruchomienie
+
+#### instalacja projektu (w folderze projektu):
+```bash
+npm install
+```
+
+<br/>
+
+#### uruchamiamy **Mongosh**
+```bash
+mongosh
+```
+
+<br/>
+
+#### tworzymy bazę danych i wychodzimy z mongosh
+```bash
+use Magazyn
+exit
+```
+
+<br/>
+
+#### przechodzimy do folderu **bazadanych** i importujemy kolekcje
+```bash
+mongoimport --db Magazyn --collection suppliers --file "updated_suppliers.json" --jsonArray
+mongoimport --db Magazyn --collection products --file "updated_products.json" --jsonArray
+mongoimport --db Magazyn --collection users --file "updated_uesrs.json" --jsonArray
+mongoimport --db Magazyn --collection orders --file "updated_orders.json" --jsonArray
+mongoimport --db Magazyn --collection deliveries --file "updated_deliveries.json" --jsonArray
+mongoimport --db Magazyn --collection inventories --file "updated_inventory.json" --jsonArray
+```
+
+<br/>
+
+#### (Opcjonalnie) Sprawdzamy czy import przebiegł pomyślnie
+```bash
+mongosh
+
+use Magazyn
+
+show collections
+```
+
+<br/>
+
+poprawny wynik: deliveries, inventories, orders, products, suppliers, users
+<br/><br/>
+
+
+#### ustawienie pliku **.env.local** (w głównym folderze projektu)
+```bash
+touch .env.local
+```
+
+<br/>
+
+Dodajemy zmienne środowiskowe np.:
+```bash
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database>?retryWrites=true&w=majority
+SECRET_KEY=your-secret-key
+```
+
+<br/>
+
+#### uruchamiamy projekt
+```bash
+npm run dev
+```
 # Dokumentacja modeli w MongoDB
 
 Ten dokument przedstawia modele w formacie JSON dla bazy danych MongoDB. Modele zostały zdefiniowane przy użyciu walidacji `$jsonSchema`, co pozwala na określenie wymaganych pól oraz typów danych.
