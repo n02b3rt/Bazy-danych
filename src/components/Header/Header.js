@@ -8,29 +8,51 @@ export default function Header({ email, role, onEmailClick }) {
 
     const handleLogout = async () => {
         try {
-            await logoutUser(); // Wywołanie funkcji wylogowania z API
-            router.push("/"); // Przekierowanie na stronę główną
+            await logoutUser();
+            router.push("/");
         } catch (err) {
             console.error("Logout error:", err);
         }
     };
 
+    const handleProfileClick = () => {
+        if (onEmailClick) {
+            onEmailClick(); // Wywołanie funkcji przekazanej z Dashboard
+        }
+    };
+
+    const handleLogoClick = () => {
+        router.push("/dashboard"); // Przeniesienie do /dashboard
+    };
+
     return (
         <header className="header">
-            <p className="header__logo">GSM-Warehouse.com</p>
+            <p
+                className="header__logo"
+                onClick={handleLogoClick}
+                title="Kliknij, aby przejść na stronę główną"
+                style={{ cursor: "pointer" }} // Dodanie wskazówki wizualnej, że element jest klikalny
+            >
+                GSM-Warehouse.com
+            </p>
             <div className="header__menu">
                 <span>
                     Zalogowano:
                     <strong
-                        onClick={onEmailClick}
+                        onClick={handleProfileClick}
                         className="header__menu__email"
+                        title="Kliknij, aby edytować swój profil"
                     >
                         {email}
                     </strong>
                 </span>
+                <span className="header__role">
+                    Rola: <strong>{role}</strong>
+                </span>
                 <button
                     className="header__menu__btn"
                     onClick={handleLogout}
+                    title="Wyloguj się"
                 >
                     Log out
                 </button>

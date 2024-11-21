@@ -11,18 +11,20 @@ import UserProfile from "@/app/dashboard/components/UserProfile/UserProfile.js";
 import './dashboard.scss';
 
 export default function DashboardPage() {
-    const [user, setUser] = useState(null); // Dane użytkownika
-    const [loading, setLoading] = useState(true); // Status ładowania
-    const [showProfile, setShowProfile] = useState(false); // Czy wyświetlać profil użytkownika
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [showProfile, setShowProfile] = useState(false);
+    const [loggedInUserRole, setLoggedInUserRole] = useState(null);
     const router = useRouter();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userData = await getUserData(); // Pobranie danych użytkownika z API
+                const userData = await getUserData();
                 setUser(userData);
+                setLoggedInUserRole(userData.role); // Ustawiamy rolę zalogowanego użytkownika
             } catch (err) {
-                router.push("/"); // Przekierowanie w przypadku błędu (np. brak sesji)
+                router.push("/");
             } finally {
                 setLoading(false);
             }
@@ -32,11 +34,11 @@ export default function DashboardPage() {
     }, [router]);
 
     if (loading) {
-        return <p>Ładowanie danych...</p>; // Wyświetlenie ekranu ładowania
+        return <p>Ładowanie danych...</p>;
     }
 
     if (!user) {
-        return null; // Zapobieganie renderowaniu komponentów bez danych użytkownika
+        return null;
     }
 
     const handleShowProfile = () => setShowProfile(true);
@@ -46,11 +48,15 @@ export default function DashboardPage() {
         <div className="container">
             <Header
                 email={user.email}
-                role={user.role}
-                onEmailClick={handleShowProfile} // Przekazywanie obsługi kliknięcia w email
+                role={user.role} // Przekazywanie roli do Header
+                onEmailClick={handleShowProfile}
             />
             {showProfile ? (
-                <UserProfile user={user} onBack={handleHideProfile} />
+                <UserProfile
+                    user={user}
+                    loggedInUserRole={loggedInUserRole} // Przekazywanie roli zalogowanego użytkownika
+                    onBack={handleHideProfile}
+                />
             ) : (
                 <>
                     {user.role === "warehouse_manager" && <WarehouseManager />}
