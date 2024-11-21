@@ -3,7 +3,7 @@ import './Header.scss';
 import { useRouter } from "next/navigation";
 import { logoutUser } from "@/lib/auth.js";
 
-export default function Header({ email, role }) {
+export default function Header({ email, role, onEmailClick }) {
     const router = useRouter();
 
     const handleLogout = async () => {
@@ -19,10 +19,18 @@ export default function Header({ email, role }) {
         <header className="header">
             <p className="header__logo">GSM-Warehouse.com</p>
             <div className="header__menu">
-                <span>Zalogowano: <strong>{email}</strong></span>
+                <span>
+                    Zalogowano:
+                    <strong
+                        onClick={onEmailClick}
+                        className="header__menu__email"
+                    >
+                        {email}
+                    </strong>
+                </span>
                 <button
                     className="header__menu__btn"
-                    onClick={handleLogout} // Użycie lokalnej funkcji handleLogout
+                    onClick={handleLogout}
                 >
                     Log out
                 </button>

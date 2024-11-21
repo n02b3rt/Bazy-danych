@@ -7,11 +7,13 @@ import Header from "@/components/Header/Header.js";
 import WarehouseWorker from "@/app/dashboard/usersDashboards/WarehouseWorker/WarehouseWorker.js";
 import WarehouseManager from "@/app/dashboard/usersDashboards/WarehouseManager/WarehouseManager.js";
 import StoreManager from "@/app/dashboard/usersDashboards/StoreManager/StoreManager.js";
+import UserProfile from "@/app/dashboard/components/UserProfile/UserProfile.js";
 import './dashboard.scss';
 
 export default function DashboardPage() {
     const [user, setUser] = useState(null); // Dane użytkownika
     const [loading, setLoading] = useState(true); // Status ładowania
+    const [showProfile, setShowProfile] = useState(false); // Czy wyświetlać profil użytkownika
     const router = useRouter();
 
     useEffect(() => {
@@ -37,12 +39,25 @@ export default function DashboardPage() {
         return null; // Zapobieganie renderowaniu komponentów bez danych użytkownika
     }
 
+    const handleShowProfile = () => setShowProfile(true);
+    const handleHideProfile = () => setShowProfile(false);
+
     return (
         <div className="container">
-            <Header email={user.email} role={user.role} /> {/* Wyświetlenie nagłówka z danymi użytkownika */}
-            {user.role === "warehouse_manager" && <WarehouseManager />}
-            {user.role === "warehouse_worker" && <WarehouseWorker />}
-            {user.role === "store_manager" && <StoreManager />}
+            <Header
+                email={user.email}
+                role={user.role}
+                onEmailClick={handleShowProfile} // Przekazywanie obsługi kliknięcia w email
+            />
+            {showProfile ? (
+                <UserProfile userId={user._id} onBack={handleHideProfile} />
+            ) : (
+                <>
+                    {user.role === "warehouse_manager" && <WarehouseManager />}
+                    {user.role === "warehouse_worker" && <WarehouseWorker />}
+                    {user.role === "store_manager" && <StoreManager />}
+                </>
+            )}
         </div>
     );
 }
