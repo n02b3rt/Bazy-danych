@@ -269,7 +269,20 @@ db.createCollection("users", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["name", "surname", "email", "password_hash", "role", "date_of_birth", "start_date", "personal_id", "address", "phone_number"],
+            required: [
+                "name",
+                "surname",
+                "email",
+                "password_hash",
+                "role",
+                "date_of_birth",
+                "start_date",
+                "personal_id",
+                "address",
+                "phone_number",
+                "bank_account",
+                "salary"
+            ],
             properties: {
                 _id: {
                     bsonType: "objectId",
@@ -293,19 +306,20 @@ db.createCollection("users", {
                 },
                 role: {
                     bsonType: "string",
-                    description: "Role is required and must be a string, e.g., 'warehouse_manager'."
+                    description: "Role is required and must be a string, e.g., 'warehouse_manager', 'warehouse_worker', or 'store_manager'."
                 },
                 date_of_birth: {
                     bsonType: "date",
-                    description: "Date of birth is required and must be a date."
+                    description: "Date of birth is required and must be a valid date."
                 },
                 start_date: {
                     bsonType: "date",
-                    description: "Start date is required and must be a date."
+                    description: "Start date is required and must be a valid date."
                 },
                 personal_id: {
                     bsonType: "string",
-                    description: "Personal ID is required and must be a string."
+                    pattern: "^[0-9]{11}$",
+                    description: "Personal ID is required, must be 11 numeric characters, and unique."
                 },
                 address: {
                     bsonType: "string",
@@ -313,7 +327,17 @@ db.createCollection("users", {
                 },
                 phone_number: {
                     bsonType: "string",
-                    description: "Phone number is required and must be a string."
+                    pattern: "^[+0-9 ]{9,15}$",
+                    description: "Phone number is required, must be a string, and follow valid formats."
+                },
+                bank_account: {
+                    bsonType: "string",
+                    description: "Bank account is required and must be a valid IBAN."
+                },
+                salary: {
+                    bsonType: "number",
+                    minimum: 0,
+                    description: "Salary is required and must be a positive number. For 'store_manager', the salary is set to 0."
                 }
             }
         }
