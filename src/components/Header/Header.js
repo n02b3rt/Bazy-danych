@@ -1,7 +1,7 @@
 "use client";
 import './Header.scss';
 import { useRouter } from "next/navigation";
-import { logoutUser } from "@/lib/auth";
+import { logoutUser } from "@/lib/auth.js";
 
 export default function Header({ email, role }) {
     const router = useRouter();

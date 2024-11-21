@@ -1,0 +1,12 @@
+.menuSortFilter{
+  font-size: 22px;
+  h3{
+    font-size: 64px;
+    margin-bottom: 2px;
+  }
+  &__menu{
+    display:grid;
+    grid-template-columns: repeat(4, max-content);
+    column-gap: 20px;
+  }
+}

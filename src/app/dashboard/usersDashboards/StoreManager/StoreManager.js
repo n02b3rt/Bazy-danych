@@ -1,92 +1,69 @@
 import { useEffect, useState } from "react";
+import MenuSortFilter from "@/app/dashboard/components/MenuSortFilter/MenuSortFilter.js";
+import Cart from "@/app/dashboard/components/Cart/Cart.js";
+import ProductList from "@/app/dashboard/components/ProductList/ProductList.js";
+import './StoreManager.scss';
 
 export default function StoreManager() {
     const [products, setProducts] = useState([]);
     const [displayedProducts, setDisplayedProducts] = useState([]);
+    const [cart, setCart] = useState([]); // Koszyk
     const [sortOption, setSortOption] = useState("price_asc");
     const [categoryFilter, setCategoryFilter] = useState("all");
+    const [userId, setUserId] = useState(null); // ID użytkownika
 
     useEffect(() => {
-        // Pobranie produktów z API
         const fetchProducts = async () => {
             try {
                 const response = await fetch("/api/database/products");
                 const data = await response.json();
                 setProducts(data);
-                setDisplayedProducts(data); // Wyświetl wszystkie produkty na początku
+                setDisplayedProducts(data);
             } catch (error) {
                 console.error("Błąd podczas pobierania produktów:", error);
             }
         };
 
+        const fetchUserId = async () => {
+            try {
+                const response = await fetch("/api/auth/verify", {
+                    method: "GET",
+                    credentials: "include"
+                });
+                if (response.ok) {
+                    const userData = await response.json();
+                    setUserId(userData._id);
+                }
+            } catch (error) {
+                console.error("Błąd podczas pobierania użytkownika:", error);
+            }
+        };
+
         fetchProducts();
+        fetchUserId();
     }, []);
 
-    // Funkcja filtrowania i sortowania
-    useEffect(() => {
-        let updatedProducts = [...products];
-
-        // Filtrowanie według kategorii
-        if (categoryFilter !== "all") {
-            updatedProducts = updatedProducts.filter(
-                (product) => product.category === categoryFilter
-            );
-        }
-
-        // Sortowanie
-        if (sortOption === "price_asc") {
-            updatedProducts.sort((a, b) => a.price - b.price);
-        } else if (sortOption === "price_desc") {
-            updatedProducts.sort((a, b) => b.price - a.price);
-        } else if (sortOption === "name_asc") {
-            updatedProducts.sort((a, b) => a.name.localeCompare(b.name));
-        } else if (sortOption === "name_desc") {
-            updatedProducts.sort((a, b) => b.name.localeCompare(a.name));
-        }
-
-        setDisplayedProducts(updatedProducts);
-    }, [sortOption, categoryFilter, products]);
-
     return (
-        <div>
-            <p>storeManager</p>
-            <h1>Produkty</h1>
-            <div style={{ marginBottom: "20px" }}>
-                <label>
-                    Sortuj według:
-                    <select
-                        value={sortOption}
-                        onChange={(e) => setSortOption(e.target.value)}
-                        style={{ marginLeft: "10px" }}
-                    >
-                        <option value="price_asc">Cena: rosnąco</option>
-                        <option value="price_desc">Cena: malejąco</option>
-                        <option value="name_asc">Nazwa: A-Z</option>
-                        <option value="name_desc">Nazwa: Z-A</option>
-                    </select>
-                </label>
-                <label style={{ marginLeft: "20px" }}>
-                    Filtruj kategorię:
-                    <select
-                        value={categoryFilter}
-                        onChange={(e) => setCategoryFilter(e.target.value)}
-                        style={{ marginLeft: "10px" }}
-                    >
-                        <option value="all">Wszystkie</option>
-                        <option value="telefony">telefony</option>
-                        <option value="akcesoria_do_telefonow">akcesoria_do_telefonow</option>
-                        <option value="akcesoria_audio">akcesoria_audio</option>
-                        <option value="akcesoria_ekranowe">akcesoria_ekranowe</option>
-                    </select>
-                </label>
+        <div className="storeManager">
+            <div className="storeManager__menu">
+                <MenuSortFilter
+                    sortOption={sortOption}
+                    setSortOption={setSortOption}
+                    categoryFilter={categoryFilter}
+                    setCategoryFilter={setCategoryFilter}
+                    products={products}
+                    setDisplayedProducts={setDisplayedProducts}
+                />
+                <Cart
+                    cart={cart}
+                    setCart={setCart}
+                    userId={userId}
+                />
             </div>
-            <ul>
-                {displayedProducts.map((product, index) => (
-                    <li key={index}>
-                        <strong>{product.name}</strong> - {product.category} - {product.price} zł
-                    </li>
-                ))}
-            </ul>
+            <ProductList
+                products={displayedProducts}
+                addToCart={(product) => setCart((prevCart) => [...prevCart, product])}
+            />
         </div>
     );
 }
