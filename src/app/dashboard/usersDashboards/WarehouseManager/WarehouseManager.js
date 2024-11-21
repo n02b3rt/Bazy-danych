@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import EmployeeList from "./EmployeeList/EmployeeList";
-import Page from "@/app/dashboard/user-profile/[id]/page.js";
+import './WarehouseManager.scss'
 
 export default function WarehouseManager() {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -15,8 +15,8 @@ export default function WarehouseManager() {
     };
 
     return (
-        <div>
+        <section className="WarehouseManager">
                 <EmployeeList onEditUser={handleEditUser} />
-        </div>
+        </section>
     );
 }

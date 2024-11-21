@@ -1,0 +1,20 @@
+.employeeList{
+  width: 1200px;
+  &__menu{
+    font-size: 32px;
+    margin-bottom: 20px;
+    label{
+      font-size: 20px;
+      input{
+        margin-left: 20px;
+      }
+    }
+  }
+  &__container{
+    background: #e3e3e3;
+    display: grid;
+    row-gap: 10px;
+    padding: 20px;
+  }
+}
+

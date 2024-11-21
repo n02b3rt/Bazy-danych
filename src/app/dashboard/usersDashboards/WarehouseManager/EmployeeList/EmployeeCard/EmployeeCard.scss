@@ -1,0 +1,11 @@
+.employeeCard{
+  padding:20px;
+  background: white;
+  display: grid;
+  column-gap: 40px;
+  align-items: center;
+  grid-template-columns:minmax(300px,1fr) 1fr 1fr 1fr max-content;
+  button{
+    padding: 5px 20px;
+  }
+}

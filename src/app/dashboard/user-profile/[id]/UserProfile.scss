@@ -1,0 +1,29 @@
+.user-profile {
+  margin-top: 30px;
+  padding: 30px 50px;
+  background: #e3e3e3;
+  display: grid;
+  grid-template-rows: 1fr max-content min-content;
+  row-gap: 30px;
+  h2{
+    font-size: 32px;
+  }
+  button{
+    //background: ;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background: #414141;
+    color: white;
+  }
+  &__buttons{
+    display: grid;
+    column-gap: 40px;
+    grid-template-columns: repeat(2, minmax(200px, max-content));
+    &__fire-button{
+      background: red !important;
+    }
+  }
+
+}

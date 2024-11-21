@@ -27,13 +27,19 @@ export default function EmployeeList({ onEditUser }) {
     console.log(filteredEmployees)
     return (
         <div className="employeeList">
-            <h2>Lista Pracowników</h2>
-            <input
-                type="text"
-                placeholder="Wyszukaj po emailu"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <div className="employeeList__menu">
+                <h2>Lista Pracowników</h2>
+                <label>
+                    Wyszukaj:
+                <input
+                    type="text"
+                    placeholder="Wyszukaj po emailu"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                </label>
+            </div>
+
             <div className="employeeList__container">
                 {filteredEmployees.map((employee) => (
                     <EmployeeCard

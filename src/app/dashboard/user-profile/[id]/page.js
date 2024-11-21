@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import EditForm from "@/app/dashboard/components/UserProfile/EditForm/EditForm";
 import ReadOnlyProfile from "@/app/dashboard/components/UserProfile/ReadOnlyProfile/ReadOnlyProfile";
 import { UserContext } from "@/app/dashboard/layout";
+import './UserProfile.scss'
 
 export default function UserProfilePage() {
     const router = useRouter();
@@ -107,7 +108,7 @@ export default function UserProfilePage() {
     }
 
     return (
-        <div className="userProfile">
+        <div className="user-profile">
             <h2>Profil użytkownika</h2>
             {isEditing ? (
                 <EditForm
@@ -119,16 +120,18 @@ export default function UserProfilePage() {
             ) : (
                 <ReadOnlyProfile formData={user} onEdit={() => setIsEditing(true)} />
             )}
+            <div className='user-profile__buttons'>
             {loggedInUser.role === "warehouse_manager" && user.role !== "fired" && (
                 <button
                     type="button"
                     onClick={handleFire}
-                    className="fire-button"
+                    className="user-profile__buttons__fire-button"
                 >
                     Zwolnij użytkownika
                 </button>
             )}
             <button onClick={() => router.push("/dashboard")}>Powrót do dashboardu</button>
+            </div>
         </div>
     );
 }
