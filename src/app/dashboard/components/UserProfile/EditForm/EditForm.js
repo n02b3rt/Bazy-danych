@@ -61,7 +61,7 @@ export default function EditForm({ editableFields, formData, userId, onCancel })
         setIsSaving(true);
 
         try {
-            const response = await fetch(`/api/database/users/${userId}`, {
+            const response = await fetch(`/api/database/users/update/${userId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

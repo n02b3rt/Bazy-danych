@@ -1,4 +1,4 @@
-import clientPromise from "@/lib/mongodb"; // Import MongoDB client
+import clientPromise from "@/lib/mongodb.js"; // Import MongoDB client
 import { ObjectId } from "mongodb";
 import bcrypt from "bcrypt";
 

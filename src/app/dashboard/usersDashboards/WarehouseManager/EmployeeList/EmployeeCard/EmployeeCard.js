@@ -1,16 +1,20 @@
 "use client";
+
+import { useRouter } from "next/navigation";
 import "./EmployeeCard.scss";
 
-export default function EmployeeCard({ employee, onEditUser }) {
+export default function EmployeeCard({ employee }) {
+    const router = useRouter();
+
+    const handleViewProfile = () => {
+        router.push(`/dashboard/user-profile/${employee._id}`); // Przekierowanie na stronę użytkownika
+    };
+
     return (
         <div className="employeeCard">
-            <p><strong>Email:</strong> {employee.email}</p>
-            <p><strong>Imię:</strong> {employee.name}</p>
-            <p><strong>Nazwisko:</strong> {employee.surname}</p>
-            <p><strong>Nazwisko:</strong> {employee.role}</p>
-            <p><strong>PESEL:</strong> {employee.personal_id}</p>
-            <p><strong>Wypłata:</strong> {employee.salary || "Brak danych"}</p>
-            <button onClick={() => onEditUser(employee)}>Edytuj dane</button>
+            <p>Email: {employee.email}</p>
+            <p>Rola: {employee.role}</p>
+            <button onClick={handleViewProfile}>Edytuj Profil</button>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import EmployeeList from "./EmployeeList/EmployeeList";
-import Page from "@/app/dashboard/components/UserProfile/page.js";
+import Page from "@/app/dashboard/user-profile/[id]/page.js";
 
 export default function WarehouseManager() {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -16,15 +16,7 @@ export default function WarehouseManager() {
 
     return (
         <div>
-            {selectedUser ? (
-                <Page
-                    user={selectedUser}
-                    onBack={handleBack}
-                    loggedInUserRole="warehouse_manager" // Rola zalogowanego użytkownika
-                />
-            ) : (
                 <EmployeeList onEditUser={handleEditUser} />
-            )}
         </div>
     );
 }

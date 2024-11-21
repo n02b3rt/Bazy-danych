@@ -40,7 +40,7 @@ export default function DashboardLayout({ children }) {
 
     return (
         <UserContext.Provider value={user}>
-            <Header email={user.email} role={user.role} />
+            <Header email={user.email} role={user.role} userId={user._id}/>
             <main>{children}</main>
         </UserContext.Provider>
     );
