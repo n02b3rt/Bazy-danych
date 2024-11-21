@@ -4,7 +4,7 @@ import EditForm from "./EditForm/EditForm";
 import ReadOnlyProfile from "./ReadOnlyProfile/ReadOnlyProfile";
 import React, { useState, useEffect } from "react";
 
-export default function UserProfile({ user, onBack, loggedInUserRole }) {
+export default function Page({ user, onBack, loggedInUserRole }) {
     const [formData, setFormData] = useState(user);
     const [isEditing, setIsEditing] = useState(false);
     const [editableFields, setEditableFields] = useState([]);
