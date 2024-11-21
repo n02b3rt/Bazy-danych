@@ -50,7 +50,7 @@ export default function DashboardPage() {
                 onEmailClick={handleShowProfile} // Przekazywanie obsługi kliknięcia w email
             />
             {showProfile ? (
-                <UserProfile userId={user._id} onBack={handleHideProfile} />
+                <UserProfile user={user} onBack={handleHideProfile} />
             ) : (
                 <>
                     {user.role === "warehouse_manager" && <WarehouseManager />}
