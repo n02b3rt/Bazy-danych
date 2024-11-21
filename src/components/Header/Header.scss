@@ -1,0 +1,32 @@
+.header{
+  width: 100%;
+  position:fixed;
+  top:0;
+  left:0;
+  height: 55px;
+  color: white;
+  background: #414141;
+  box-shadow: 0 0px 8px rgba(0,0,0,0.5);
+  display: grid;
+  align-items: center;
+  padding: 0 20px;
+  grid-template-columns: 1fr 1fr;
+  z-index: 999;
+
+  &__logo{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  &__menu{
+    display: grid;
+    justify-content: right;
+    grid-template-columns: max-content max-content;
+    column-gap: 20px;
+    &__btn{
+      color: inherit;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

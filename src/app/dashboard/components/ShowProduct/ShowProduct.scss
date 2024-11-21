@@ -1,0 +1,13 @@
+.show-product{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  & button{
+    height: 40px;
+    width: 200px;
+  }
+}

@@ -3,12 +3,12 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  :root {
+//    --background: #0a0a0a;
+//    --foreground: #ededed;
+//  }
+//}
 
 html,
 body {
@@ -23,7 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  padding: 10rem;
+  padding: 55px 0;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -40,8 +40,9 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  html {
+//    color-scheme: dark;
+//  }
+//}
+

@@ -1,352 +1,352 @@
 [
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8f9" },
-        "name": "Smartfon OnePlus 9",
-        "description": "Opis produktu smartfon oneplus 9",
-        "price": 831.45,
+        "name": "iPhone 14 Pro Max",
+        "description": "Najnowszy flagowiec Apple z dynamiczną wyspą, ekranem ProMotion i aparatem 48 MP.",
+        "price": 6299,
         "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8fa" },
-        "name": "Mikrofon do telefonu",
-        "description": "Opis produktu mikrofon do telefonu",
-        "price": 790.27,
-        "category": "akcesoria_audio"
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "Telefon z ekranem AMOLED 6.8\", rysikiem S Pen i aparatem 200 MP.",
+        "price": 5699,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8fb" },
-        "name": "Smartfon Xiaomi Mi 11",
-        "description": "Opis produktu smartfon xiaomi mi 11",
-        "price": 1301.58,
+        "name": "Xiaomi 13 Pro",
+        "description": "Flagowiec Xiaomi z procesorem Snapdragon 8 Gen 2 i doskonałym aparatem Leica.",
+        "price": 4699,
         "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8fc" },
-        "name": "Przej\u015bci\u00f3wka Jack/USB-C",
-        "description": "Opis produktu przej\u015bci\u00f3wka jack/usb-c",
-        "price": 352.17,
-        "category": "akcesoria_audio"
+        "name": "Google Pixel 7 Pro",
+        "description": "Telefon z Androidem w czystej wersji, AI w aparacie i ekranem OLED 120 Hz.",
+        "price": 4399,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8fd" },
-        "name": "Szk\u0142o hartowane",
-        "description": "Opis produktu szk\u0142o hartowane",
-        "price": 1354.53,
-        "category": "akcesoria_ekranowe"
+        "name": "OnePlus 11",
+        "description": "Flagowiec z płynnym OxygenOS, ekranem AMOLED 120 Hz i szybkim ładowaniem 100 W.",
+        "price": 3999,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8fe" },
-        "name": "Szk\u0142o hartowane",
-        "description": "Opis produktu szk\u0142o hartowane",
-        "price": 713.28,
-        "category": "akcesoria_ekranowe"
+        "name": "Sony Xperia 1 V",
+        "description": "Smartfon dla twórców z aparatem 4K HDR i zaawansowanymi funkcjami fotograficznymi.",
+        "price": 5999,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc8ff" },
-        "name": "Powerbank",
-        "description": "Opis produktu powerbank",
-        "price": 1453.57,
-        "category": "akcesoria_do_telefonow"
+        "name": "Motorola Edge 40 Pro",
+        "description": "Elegancki telefon z zakrzywionym ekranem OLED i wydajnym procesorem Snapdragon.",
+        "price": 3499,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc900" },
-        "name": "Czy\u015bcik do ekran\u00f3w",
-        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
-        "price": 590.33,
-        "category": "akcesoria_ekranowe"
+        "name": "Huawei P60 Pro",
+        "description": "Telefon z zaawansowaną fotografią nocną i wydajnym akumulatorem 4815 mAh.",
+        "price": 5199,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc901" },
-        "name": "Powerbank",
-        "description": "Opis produktu powerbank",
-        "price": 65.57,
-        "category": "akcesoria_do_telefonow"
+        "name": "Asus ROG Phone 7",
+        "description": "Gamingowy smartfon z ekranem AMOLED 165 Hz i chłodzeniem AeroActive.",
+        "price": 4999,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc902" },
-        "name": "Szk\u0142o hartowane",
-        "description": "Opis produktu szk\u0142o hartowane",
-        "price": 223.02,
-        "category": "akcesoria_ekranowe"
+        "name": "Realme GT 3",
+        "description": "Telefon z błyskawicznym ładowaniem 240 W i procesorem Snapdragon 8+ Gen 1.",
+        "price":  3199,
+        "category": "telefony"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc903" },
-        "name": "Folia ochronna",
-        "description": "Opis produktu folia ochronna",
-        "price": 1258.82,
-        "category": "akcesoria_ekranowe"
+        "name": "Baseus Durable USB-C to USB-C 100W",
+        "description": "Wytrzymały kabel o mocy 100 W z szybkim ładowaniem PD i transferem danych 480 Mbps.",
+        "price": 49,
+        "category": "kable"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc904" },
-        "name": "Czy\u015bcik do ekran\u00f3w",
-        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
-        "price": 550.1,
-        "category": "akcesoria_ekranowe"
+        "name": "Anker PowerLine+ II Lightning",
+        "description": "Certyfikowany kabel MFi do urządzeń Apple, odporny na zginanie i trwały.",
+        "price": 79,
+        "category": "kable"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc905" },
-        "name": "Mikrofon do telefonu",
-        "description": "Opis produktu mikrofon do telefonu",
-        "price": 668.42,
-        "category": "akcesoria_audio"
+        "name": "UGREEN USB-C to HDMI 4K Cable",
+        "description": "Kabel do przesyłania obrazu 4K z laptopów i smartfonów na ekrany HDMI.",
+        "price": 99,
+        "category": "kable"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc906" },
-        "name": "S\u0142uchawki bezprzewodowe",
-        "description": "Opis produktu s\u0142uchawki bezprzewodowe",
-        "price": 843.09,
-        "category": "akcesoria_do_telefonow"
+        "name": "Samsung USB-C to USB-C Cable EP-DN975",
+        "description": "Oryginalny kabel Samsunga obsługujący szybkie ładowanie i przesył danych.",
+        "price": 39,
+        "category": "kable"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc907" },
-        "name": "Uchwyt samochodowy",
-        "description": "Opis produktu uchwyt samochodowy",
-        "price": 743.32,
-        "category": "akcesoria_do_telefonow"
+        "name": "Apple Thunderbolt 4 Pro Cable 1,8m",
+        "description": "Profesjonalny kabel Thunderbolt 4 do szybkiego przesyłania danych i ładowania.",
+        "price": 679,
+        "category": "kable"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc908" },
-        "name": "Etui na telefon",
-        "description": "Opis produktu etui na telefon",
-        "price": 587.04,
-        "category": "akcesoria_do_telefonow"
+        "name": "Anker PowerPort III Nano 20W",
+        "description": "Kompaktowa ładowarka USB-C o mocy 20 W z Power Delivery, idealna do iPhone'ów.",
+        "price": 79,
+        "category": "ladowarki"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc909" },
-        "name": "Folia ochronna",
-        "description": "Opis produktu folia ochronna",
-        "price": 860.21,
-        "category": "akcesoria_ekranowe"
+        "name": "Baseus GaN3 Pro Charger 65W",
+        "description": "Ładowarka wieloportowa z technologią GaN, ładuje trzy urządzenia jednocześnie.",
+        "price": 129,
+        "category": "ladowarki"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc90a" },
-        "name": "Uchwyt samochodowy",
-        "description": "Opis produktu uchwyt samochodowy",
-        "price": 939.99,
-        "category": "akcesoria_do_telefonow"
+        "name": "Samsung Super Fast Charger 45W EP-T4510",
+        "description": "Oryginalna ładowarka Samsunga obsługująca ładowanie super szybkie 2.0.",
+        "price": 149,
+        "category": "ladowarki"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc90b" },
-        "name": "G\u0142o\u015bnik Bluetooth",
-        "description": "Opis produktu g\u0142o\u015bnik bluetooth",
-        "price": 645.61,
-        "category": "akcesoria_audio"
+        "name": "Belkin BoostCharge Pro 3-in-1 MagSafe",
+        "description": "Stacja ładująca MagSafe dla iPhone'a, Apple Watcha i AirPods jednocześnie.",
+        "price": 499,
+        "category": "ladowarki"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc90c" },
-        "name": "Przej\u015bci\u00f3wka Jack/USB-C",
-        "description": "Opis produktu przej\u015bci\u00f3wka jack/usb-c",
-        "price": 681.3,
-        "category": "akcesoria_audio"
+        "name": "Xiaomi Mi 67W Fast Charger with USB-C Cable",
+        "description": "Zestaw szybkiej ładowarki 67 W z kablem USB-C do urządzeń Xiaomi i innych.",
+        "price": 99,
+        "category": "ladowarki"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc90d" },
-        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
-        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
-        "price": 1026.71,
+        "name": "Spray do ekranów TechClean+",
+        "description": "Preparat w sprayu do bezpiecznego czyszczenia ekranów OLED i LCD.",
+        "price": 35.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc90e" },
-        "name": "Etui na telefon",
-        "description": "Opis produktu etui na telefon",
-        "price": 590.25,
+        "name": "Etui silikonowe ClearCase",
+        "description": "Przezroczyste, wytrzymałe etui na telefon zapewniające ochronę przed upadkami.",
+        "price": 45.99,
         "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc90f" },
-        "name": "Smartfon Xiaomi Mi 11",
-        "description": "Opis produktu smartfon xiaomi mi 11",
-        "price": 1025.0,
-        "category": "telefony"
+        "name": "Słuchawki Bluetooth JBL Tune 510BT",
+        "description": "Bezprzewodowe słuchawki z mocnym basem i długim czasem pracy na baterii.",
+        "price": 199.99,
+        "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc910" },
-        "name": "Smartfon OnePlus 9",
-        "description": "Opis produktu smartfon oneplus 9",
-        "price": 1496.55,
-        "category": "telefony"
+        "name": "Mikrofon do telefonu Rode SmartLav+",
+        "description": "Profesjonalny mikrofon krawatowy do smartfonów i urządzeń mobilnych.",
+        "price": 299.99,
+        "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc911" },
-        "name": "S\u0142uchawki bezprzewodowe",
-        "description": "Opis produktu s\u0142uchawki bezprzewodowe",
-        "price": 1101.67,
-        "category": "akcesoria_do_telefonow"
+        "name": "Bezprzewodowe słuchawki Xiaomi Buds 3",
+        "description": "Słuchawki douszne TWS z aktywną redukcją szumów.",
+        "price": 299.99,
+        "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc912" },
-        "name": "Powerbank",
-        "description": "Opis produktu powerbank",
-        "price": 541.05,
+        "name": "Powerbank Baseus 30000mAh",
+        "description": "Powerbank o dużej pojemności z szybkim ładowaniem PD.",
+        "price": 149.99,
         "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc913" },
-        "name": "Smartfon Samsung Galaxy S21",
-        "description": "Opis produktu smartfon samsung galaxy s21",
-        "price": 1257.64,
-        "category": "telefony"
+        "name": "Uchwyt samochodowy Spigen Kuel QS11",
+        "description": "Magnetyczny uchwyt samochodowy z szybkim mocowaniem do telefonu.",
+        "price": 99.99,
+        "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc914" },
-        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
-        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
-        "price": 302.85,
+        "name": "Czyścik BlueScreen TouchSafe",
+        "description": "Antystatyczny czyścik do ekranów dotykowych i laptopów.",
+        "price": 19.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc915" },
-        "name": "Mikrofon do telefonu",
-        "description": "Opis produktu mikrofon do telefonu",
-        "price": 809.13,
+        "name": "Adapter USB-C do Jack 3.5mm",
+        "description": "Adapter audio umożliwiający podłączenie słuchawek przewodowych do USB-C.",
+        "price": 49.99,
         "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc916" },
-        "name": "Szk\u0142o hartowane",
-        "description": "Opis produktu szk\u0142o hartowane",
-        "price": 727.49,
+        "name": "Szkło hartowane Spigen AlignMaster",
+        "description": "Wytrzymałe szkło hartowane z precyzyjnym systemem montażu.",
+        "price": 39.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc917" },
-        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
-        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
-        "price": 1348.12,
+        "name": "Spray do ekranów NanoClean Pro",
+        "description": "Wysokiej jakości płyn do czyszczenia ekranów z mikrofibrą.",
+        "price": 29.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc918" },
-        "name": "Smartfon Xiaomi Mi 11",
-        "description": "Opis produktu smartfon xiaomi mi 11",
-        "price": 470.63,
-        "category": "telefony"
+        "name": "Etui pancerne Supcase Unicorn Beetle",
+        "description": "Wytrzymałe etui chroniące telefon przed uszkodzeniami mechanicznymi.",
+        "price": 129.99,
+        "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc919" },
-        "name": "Smartfon Samsung Galaxy S21",
-        "description": "Opis produktu smartfon samsung galaxy s21",
-        "price": 1397.72,
-        "category": "telefony"
+        "name": "Bezprzewodowe słuchawki Anker Soundcore Liberty 3 Pro",
+        "description": "Słuchawki z wysoką jakością dźwięku i aktywną redukcją szumów.",
+        "price": 499.99,
+        "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc91a" },
-        "name": "Smartfon Huawei P40",
-        "description": "Opis produktu smartfon huawei p40",
-        "price": 470.8,
-        "category": "telefony"
+        "name": "Czyścik iSpray TouchSafe",
+        "description": "Spray z mikrofibrą do czyszczenia ekranów dotykowych.",
+        "price": 29.99,
+        "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc91b" },
-        "name": "Smartfon OnePlus 9",
-        "description": "Opis produktu smartfon oneplus 9",
-        "price": 316.73,
-        "category": "telefony"
+        "name": "Głośnik Bluetooth JBL Flip 6",
+        "description": "Wodoodporny głośnik z mocnym basem i długim czasem pracy.",
+        "price": 499.99,
+        "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc91c" },
-        "name": "Przej\u015bci\u00f3wka Jack/USB-C",
-        "description": "Opis produktu przej\u015bci\u00f3wka jack/usb-c",
-        "price": 399.71,
+        "name": "Adapter audio Baseus Jack/USB-C",
+        "description": "Adapter audio do przesyłania dźwięku w wysokiej jakości.",
+        "price": 59.99,
         "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc91d" },
-        "name": "Folia ochronna",
-        "description": "Opis produktu folia ochronna",
-        "price": 770.85,
+        "name": "Folia ochronna 3MK HardGlass",
+        "description": "Folia ochronna na ekran z dodatkową ochroną przed zarysowaniami.",
+        "price": 29.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc91e" },
-        "name": "Szk\u0142o hartowane",
-        "description": "Opis produktu szk\u0142o hartowane",
-        "price": 806.57,
+        "name": "Szkło ochronne Mocolo Full Glue",
+        "description": "Szkło ochronne z pełnym klejeniem zapewniające doskonałe dopasowanie.",
+        "price": 49.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc91f" },
-        "name": "Smartfon Xiaomi Mi 11",
-        "description": "Opis produktu smartfon xiaomi mi 11",
-        "price": 820.91,
-        "category": "telefony"
+        "name": "Uchwyt na telefon Baseus Armor Mount",
+        "description": "Solidny uchwyt do telefonu z regulowanym kątem ustawienia.",
+        "price": 79.99,
+        "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc920" },
-        "name": "Uchwyt samochodowy",
-        "description": "Opis produktu uchwyt samochodowy",
-        "price": 818.23,
+        "name": "Etui ClearCase iPhone 14",
+        "description": "Minimalistyczne etui, które chroni telefon przed uszkodzeniami.",
+        "price": 55.99,
         "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc921" },
-        "name": "Czy\u015bcik do ekran\u00f3w",
-        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
-        "price": 1469.77,
+        "name": "Płyn do ekranów ScreenSafe Nano",
+        "description": "Zaawansowany płyn czyszczący z technologią nano.",
+        "price": 45.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc922" },
-        "name": "\u0141adowarka indukcyjna",
-        "description": "Opis produktu \u0142adowarka indukcyjna",
-        "price": 299.75,
-        "category": "akcesoria_do_telefonow"
+        "name": "Słuchawki Baseus Encok W09",
+        "description": "Stylowe słuchawki bezprzewodowe z doskonałym brzmieniem.",
+        "price": 169.99,
+        "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc923" },
-        "name": "Powerbank",
-        "description": "Opis produktu powerbank",
-        "price": 661.66,
+        "name": "Powerbank Xiaomi Mi Power 20000mAh",
+        "description": "Pojemny i lekki powerbank do ładowania urządzeń w podróży.",
+        "price": 129.99,
         "category": "akcesoria_do_telefonow"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc924" },
-        "name": "G\u0142o\u015bnik Bluetooth",
-        "description": "Opis produktu g\u0142o\u015bnik bluetooth",
-        "price": 333.88,
+        "name": "Głośnik przenośny Sony XB13",
+        "description": "Kompaktowy głośnik z wodoodpornością i głębokim basem.",
+        "price": 249.99,
         "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc925" },
-        "name": "P\u0142yn do czyszczenia ekran\u00f3w",
-        "description": "Opis produktu p\u0142yn do czyszczenia ekran\u00f3w",
-        "price": 1275.6,
+        "name": "Spray do ekranów EcoScreen Clean",
+        "description": "Biodegradowalny spray do czyszczenia ekranów z mikrofibrą.",
+        "price": 35.99,
         "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc926" },
-        "name": "Adapter audio bezprzewodowy",
-        "description": "Opis produktu adapter audio bezprzewodowy",
-        "price": 425.41,
+        "name": "Mikrofon bezprzewodowy Samson XPD2",
+        "description": "Profesjonalny mikrofon bezprzewodowy z odbiornikiem USB.",
+        "price": 449.99,
         "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc927" },
-        "name": "Mikrofon do telefonu",
-        "description": "Opis produktu mikrofon do telefonu",
-        "price": 534.78,
+        "name": "Mikrofon Blue Yeti Nano",
+        "description": "Kompaktowy mikrofon USB do nagrywania w wysokiej jakości.",
+        "price": 399.99,
         "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc928" },
-        "name": "Adapter audio bezprzewodowy",
-        "description": "Opis produktu adapter audio bezprzewodowy",
-        "price": 249.1,
+        "name": "Adapter audio 2w1 Baseus",
+        "description": "Adapter umożliwiający ładowanie i jednoczesne używanie słuchawek.",
+        "price": 79.99,
         "category": "akcesoria_audio"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc929" },
-        "name": "Smartfon Xiaomi Mi 11",
-        "description": "Opis produktu smartfon xiaomi mi 11",
-        "price": 417.8,
-        "category": "telefony"
+        "name": "Spray do ekranów SmartClean Pro",
+        "description": "Profesjonalny spray do usuwania smug z ekranów dotykowych.",
+        "price": 39.99,
+        "category": "akcesoria_ekranowe"
     },
     {
         "_id": { "$oid": "673bc2b66a99d385ac2bc92a" },
-        "name": "Czy\u015bcik do ekran\u00f3w",
-        "description": "Opis produktu czy\u015bcik do ekran\u00f3w",
-        "price": 339.76,
+        "name": "Czyścik BlueTech NanoFiber",
+        "description": "Skuteczny czyścik do ekranów ze ściereczką z mikrofibry.",
+        "price": 19.99,
         "category": "akcesoria_ekranowe"
     }
 ]

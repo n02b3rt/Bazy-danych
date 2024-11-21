@@ -1,13 +1,13 @@
-import clientPromise from "@/lib/mongodb";
+import clientPromise from "@/lib/mongodb.js";
 
 export async function GET(request) {
     try {
         const client = await clientPromise; // Użycie istniejącego połączenia
         const db = client.db("Magazyn"); // Połącz z bazą danych
 
-        const users = await db.collection("users").find({}).toArray();
+        const products = await db.collection("products").find({}).toArray();
 
-        return new Response(JSON.stringify(users), {
+        return new Response(JSON.stringify(products), {
             status: 200,
             headers: { "Content-Type": "application/json" },
         });

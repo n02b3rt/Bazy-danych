@@ -18,20 +18,30 @@ export async function loginUser(email, password) {
 
 // Funkcja do pobierania danych użytkownika
 export async function getUserData() {
-    const response = await fetch("/api/auth/verify", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        credentials: "include", // Wysyłanie ciasteczek
-    });
+    try {
+        const response = await fetch("/api/auth/verify", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include", // Wysyłanie ciasteczek
+        });
 
-    if (!response.ok) {
-        throw new Error("Unauthorized");
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error("API Error:", errorData);
+            throw new Error(errorData.error || "Unauthorized");
+        }
+
+        const userData = await response.json();
+        console.log("Fetched user data:", userData); // Debugowanie danych
+        return userData; // Zwraca dane użytkownika
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        throw error;
     }
-
-    return response.json(); // Zwraca dane użytkownika, jeśli token jest prawidłowy
 }
+
 
 // Funkcja do wylogowywania
 export async function logoutUser() {
