@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import EmployeeList from "./EmployeeList/EmployeeList";
 import './WarehouseManager.scss'
 
 export default function WarehouseManager() {
@@ -10,13 +9,11 @@ export default function WarehouseManager() {
         setSelectedUser(user); // Ustawia użytkownika do edycji
     };
 
-    const handleBack = () => {
-        setSelectedUser(null); // Resetuje widok do listy użytkowników
-    };
 
     return (
         <section className="WarehouseManager">
-                <EmployeeList onEditUser={handleEditUser} />
+                {/*<Page onEditUser={handleEditUser} />*/}
+            Dahboard Warehouse Manager
         </section>
     );
 }

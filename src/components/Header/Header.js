@@ -5,7 +5,6 @@ import { logoutUser } from "@/lib/auth.js";
 
 export default function Header({ email, role, userId }) {
     const router = useRouter();
-    console.log(email,role,userId);
     const handleLogout = async () => {
         try {
             await logoutUser();

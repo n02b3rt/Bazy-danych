@@ -4,6 +4,8 @@ import { useEffect, useState, createContext } from "react";
 import { useRouter } from "next/navigation";
 import { getUserData } from "@/lib/auth";
 import Header from "@/components/Header/Header";
+import RoleHeader from "@/components/RoleHeader/RoleHeader.js"
+
 import './dashboard.scss'
 
 // Tworzenie kontekstu użytkownika
@@ -42,6 +44,7 @@ export default function DashboardLayout({ children }) {
     return (
         <UserContext.Provider value={user}>
             <Header email={user.email} role={user.role} userId={user._id}/>
+            <RoleHeader />
             <main className='dashboardLayout'>{children}</main>
         </UserContext.Provider>
     );
