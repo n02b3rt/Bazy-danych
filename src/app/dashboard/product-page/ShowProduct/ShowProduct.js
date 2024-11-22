@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import './ShowProduct.scss'
 
 export default function ShowProduct({ product, onAddToCart }) {
@@ -6,11 +6,11 @@ export default function ShowProduct({ product, onAddToCart }) {
 
     const handleAddToCart = () => {
         onAddToCart({
-            id: product._id, // Zakładamy, że `id` istnieje
+            id: product._id?.$oid || product._id, // Ensure unique product ID
             name: product.name,
             category: product.category,
             price: product.price,
-            quantity: parseInt(quantity, 10)
+            quantity: parseInt(quantity, 10), // Use the selected quantity
         });
     };
 

@@ -10,9 +10,9 @@
   justify-items: center;
   align-items: center;
   &__menu{
-    width: 800px;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     column-gap: 10px;
     &__item{

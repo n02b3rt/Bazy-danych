@@ -130,7 +130,7 @@ export default function UserProfilePage() {
                     Zwolnij użytkownika
                 </button>
             )}
-            <button onClick={() => router.push("/dashboard")}>Powrót do dashboardu</button>
+            <button onClick={() => router.push("/dashboard/warehouse-menager/employee-list")}>Powrót do dashboardu</button>
             </div>
         </div>
     );

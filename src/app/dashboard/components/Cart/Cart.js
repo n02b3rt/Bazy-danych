@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "@/app/dashboard/layout";
 import './Cart.scss';
 
 export default function Cart({ cart, setCart, userId }) {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const loggedInUser = useContext(UserContext); // Kontekst użytkownika
 
     const updateCartQuantity = (productId, quantity) => {
         setCart((prevCart) =>
@@ -17,26 +19,28 @@ export default function Cart({ cart, setCart, userId }) {
     };
 
     const submitOrder = async () => {
-        if (!userId) {
+        if (!loggedInUser) {
             console.error("Brak zalogowanego użytkownika!");
             return;
         }
 
         if (cart.length === 0) {
             console.error("Koszyk jest pusty! Nie można złożyć zamówienia.");
-            alert("Koszyk jest pusty! Dodaj produkty przed złożeniem zamówienia."); // Możesz zastąpić alert własnym UI
+            alert("Koszyk jest pusty! Dodaj produkty przed złożeniem zamówienia.");
             return;
         }
 
+        // Dane zamówienia dla warehouse_manager
+        const isWarehouseManager = loggedInUser.role === "warehouse_manager";
         const orderData = {
-            user_id: userId,
+            user_id: loggedInUser._id,
             order_items: cart.map((item) => ({
                 product_id: item.id,
                 quantity: item.quantity,
             })),
-            warehouse_status: "pending",
-            assigned_worker_id: null,
-            completed_status: "not_completed",
+            warehouse_status: isWarehouseManager ? "supplementary_products" : "pending",
+            assigned_worker_id: isWarehouseManager ? null : loggedInUser._id,
+            completed_status: isWarehouseManager ? "not_completed" : "not_completed",
         };
 
         try {
@@ -50,16 +54,18 @@ export default function Cart({ cart, setCart, userId }) {
 
             if (response.ok) {
                 console.log("Zamówienie zostało dodane pomyślnie!");
-                setCart([]);
-                setIsPopupVisible(false); // Zamknij popup po złożeniu zamówienia
+                alert("Zamówienie zostało złożone pomyślnie!"); // Alert potwierdzający złożenie zamówienia
+                setCart([]); // Opróżnienie koszyka
+                setIsPopupVisible(false); // Zamknij popup
             } else {
                 console.error("Błąd podczas składania zamówienia:", response.statusText);
+                alert("Wystąpił błąd podczas składania zamówienia. Spróbuj ponownie później.");
             }
         } catch (error) {
             console.error("Błąd podczas składania zamówienia:", error);
+            alert("Wystąpił błąd podczas składania zamówienia. Spróbuj ponownie później.");
         }
     };
-
 
     const calculateTotalPrice = () => {
         return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);

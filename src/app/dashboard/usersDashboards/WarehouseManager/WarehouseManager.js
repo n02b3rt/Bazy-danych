@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
+import MainDashboard from "./mainDashboard/mainDashboard.js";
 import './WarehouseManager.scss'
+
 
 export default function WarehouseManager() {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -12,8 +14,7 @@ export default function WarehouseManager() {
 
     return (
         <section className="WarehouseManager">
-                {/*<Page onEditUser={handleEditUser} />*/}
-            Dahboard Warehouse Manager
+                <MainDashboard />
         </section>
     );
 }

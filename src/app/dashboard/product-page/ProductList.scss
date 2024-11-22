@@ -5,4 +5,23 @@
   background-color: #e3e3e3;
   display: grid;
   row-gap: 10px;
+
+}
+.productListPage{
+  h2{
+    font-size:32px;
+    margin-bottom: 20px;
+  }
+}
+
+.filters {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: max-content max-content;
+  margin-bottom: 20px;
+}
+
+.filters select {
+  padding: 5px;
+  font-size: 16px;
 }

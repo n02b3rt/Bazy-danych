@@ -20,7 +20,10 @@ export default function RoleHeader() {
             setMenuItems([
                 { name: 'Produkty', url: '/dashboard/product-page' },
                 { name: 'Podsumowanie płatności', url: '/dashboard/warehouse-menager/payment-summary' },
-                { name: 'Pracownicy', url: '/dashboard/warehouse-menager/employee-list' }
+                { name: 'Pracownicy', url: '/dashboard/warehouse-menager/employee-list' },
+                { name: 'Dodaj Pracownika', url: '/dashboard/warehouse-menager/add-user' },
+                { name: 'Dodaj Dostawce', url: '/dashboard/warehouse-menager/add-suppliers' },
+                { name: 'Dodaj Produkt', url: '/dashboard/warehouse-menager/add-product' }
             ]);
         } else if (currentUserRole === "store_manager") {
             setMenuItems([

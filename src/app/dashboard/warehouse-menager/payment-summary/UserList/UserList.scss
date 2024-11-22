@@ -1,0 +1,22 @@
+.userList {
+  display: grid;
+  gap: 10px;
+
+  &__header,
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &__header {
+    font-weight: bold;
+    background-color: #f0f0f0;
+  }
+
+  &__row:nth-child(even) {
+    background-color: #fafafa;
+  }
+}
