@@ -45,21 +45,6 @@ export default function StoreManager() {
 
     return (
         <div className="storeManager">
-            <div className="storeManager__menu">
-                <MenuSortFilter
-                    sortOption={sortOption}
-                    setSortOption={setSortOption}
-                    categoryFilter={categoryFilter}
-                    setCategoryFilter={setCategoryFilter}
-                    products={products}
-                    setDisplayedProducts={setDisplayedProducts}
-                />
-                <Cart
-                    cart={cart}
-                    setCart={setCart}
-                    userId={userId}
-                />
-            </div>
             <ProductList
                 products={displayedProducts}
                 addToCart={(product) => setCart((prevCart) => [...prevCart, product])}

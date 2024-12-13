@@ -1,29 +1,47 @@
-import { useState } from "react";
-import './ShowProduct.scss'
+// src/components/ShowProduct/ShowProduct.jsx
+
+import { useState, useContext } from "react";
+import { UserContext } from "@/app/dashboard/layout";
+import './ShowProduct.scss';
 
 export default function ShowProduct({ product, onAddToCart }) {
     const [quantity, setQuantity] = useState(1);
+    const loggedInUser = useContext(UserContext);
 
     const handleAddToCart = () => {
+        if (!product.product_id) {
+            console.error("❌ Brak product_id w produkcie:", product);
+            return;
+        }
+
         onAddToCart({
-            id: product._id?.$oid || product._id, // Ensure unique product ID
-            name: product.name,
-            category: product.category,
-            price: product.price,
-            quantity: parseInt(quantity, 10), // Use the selected quantity
+            product_id: product.product_id,
+            product_name: product.product_name,
+            product_category: product.product_category,
+            product_price: product.product_price,
+            quantity: parseInt(quantity, 10),
+            availableQuantity: product.quantity, // Dodaj dostępny stan magazynowy
         });
     };
 
     return (
         <div className="show-product">
-            <h3>{product.name}</h3>
-            <p>Kategoria: {product.category}</p>
-            <p>Cena: {product.price} zł</p>
+            <h3>{product.product_name}</h3>
+            <p>Kategoria: {product.product_category}</p>
+            <p>Cena: {product.product_price} zł</p>
+            <p>Ilość w magazynie: {product.quantity}</p>
             <input
                 type="number"
                 value={quantity}
-                onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                onChange={(e) => {
+                    const inputValue = parseInt(e.target.value, 10) || 1;
+                    const newQuantity = loggedInUser?.role === "warehouse_manager"
+                        ? Math.max(1, inputValue)
+                        : Math.min(product.quantity, Math.max(1, inputValue));
+                    setQuantity(newQuantity);
+                }}
                 min="1"
+                {...(loggedInUser?.role !== "warehouse_manager" && { max: product.quantity })}
             />
             <button onClick={handleAddToCart}>
                 Dodaj do koszyka

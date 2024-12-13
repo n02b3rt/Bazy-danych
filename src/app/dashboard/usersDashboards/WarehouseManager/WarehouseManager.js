@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import MainDashboard from "./mainDashboard/mainDashboard.js";
 import './WarehouseManager.scss'
 
 
@@ -14,7 +13,7 @@ export default function WarehouseManager() {
 
     return (
         <section className="WarehouseManager">
-                <MainDashboard />
+            <h1>MainDashboard</h1>
         </section>
     );
 }
