@@ -20,10 +20,14 @@ export const submitOrder = async (cart, loggedInUser, setCart, setIsPopupVisible
             product_id: item.id,
             quantity: item.quantity,
         })),
+        order_date: new Date().toISOString(),
         warehouse_status: isWarehouseManager ? "supplementary_products" : "pending",
         assigned_worker_id: isWarehouseManager ? null : loggedInUser._id,
         completed_status: "not_completed",
+        completion_date: null
     };
+
+    console.log(orderData);
 
     try {
         const orderResponse = await fetch("/api/database/features/submitorder", {

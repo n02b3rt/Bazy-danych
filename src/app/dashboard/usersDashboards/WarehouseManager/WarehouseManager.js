@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import './WarehouseManager.scss'
+import ShowOrders from "@/app/dashboard/components/ShowOrders/ShowOrders.js";
 
 
 export default function WarehouseManager() {
@@ -13,7 +14,7 @@ export default function WarehouseManager() {
 
     return (
         <section className="WarehouseManager">
-            <h1>MainDashboard</h1>
+            <ShowOrders/>
         </section>
     );
 }

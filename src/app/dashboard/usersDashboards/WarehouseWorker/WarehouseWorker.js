@@ -1,5 +1,7 @@
-
+import ShowOrders from "@/app/dashboard/components/ShowOrders/ShowOrders.js";
 export default function WarehouseWorker() {
     return(
-        <p>WarehouseWorker</p>
+        <section id="warehouse-worker">
+            <ShowOrders />
+        </section>
     );}
