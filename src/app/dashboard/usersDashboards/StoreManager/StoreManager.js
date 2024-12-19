@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MenuSortFilter from "@/app/dashboard/components/MenuSortFilter/MenuSortFilter.js";
 import Cart from "@/app/dashboard/components/Cart/Cart.js";
-import ProductList from "@/app/dashboard/components/ProductList/ProductList.js";
+import ProductList from "@/app/dashboard/product-page/page.js";
 import './StoreManager.scss';
 
 export default function StoreManager() {
@@ -45,21 +45,6 @@ export default function StoreManager() {
 
     return (
         <div className="storeManager">
-            <div className="storeManager__menu">
-                <MenuSortFilter
-                    sortOption={sortOption}
-                    setSortOption={setSortOption}
-                    categoryFilter={categoryFilter}
-                    setCategoryFilter={setCategoryFilter}
-                    products={products}
-                    setDisplayedProducts={setDisplayedProducts}
-                />
-                <Cart
-                    cart={cart}
-                    setCart={setCart}
-                    userId={userId}
-                />
-            </div>
             <ProductList
                 products={displayedProducts}
                 addToCart={(product) => setCart((prevCart) => [...prevCart, product])}

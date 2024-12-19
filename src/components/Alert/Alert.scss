@@ -1,0 +1,53 @@
+.alert {
+  background-color: #ffcccc;
+  color: #a94442;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: 1px solid #ebccd1;
+  border-radius: 4px;
+  position: fixed;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  // Animacja pojawiania się i znikania
+  animation: fadeInOut 5s forwards;
+
+  p {
+    margin: 0;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    color: #a94442;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+}
+
+// Definicja animacji
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}

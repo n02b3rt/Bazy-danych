@@ -5,14 +5,14 @@
 npm install
 ```
 
-<br/>
+
 
 #### uruchamiamy **Mongosh**
 ```bash
 mongosh
 ```
 
-<br/>
+
 
 #### tworzymy bazę danych i wychodzimy z mongosh
 ```bash
@@ -20,7 +20,7 @@ use Magazyn
 exit
 ```
 
-<br/>
+
 
 #### przechodzimy do folderu **bazadanych** i importujemy kolekcje
 ```bash
@@ -32,7 +32,7 @@ mongoimport --db Magazyn --collection deliveries --file "updated_deliveries.json
 mongoimport --db Magazyn --collection inventories --file "updated_inventory.json" --jsonArray
 ```
 
-<br/>
+
 
 #### (Opcjonalnie) Sprawdzamy czy import przebiegł pomyślnie
 ```bash
@@ -43,10 +43,10 @@ use Magazyn
 show collections
 ```
 
-<br/>
+
 
 poprawny wynik: deliveries, inventories, orders, products, suppliers, users
-<br/><br/>
+
 
 
 #### ustawienie pliku **.env.local** (w głównym folderze projektu)
@@ -54,15 +54,20 @@ poprawny wynik: deliveries, inventories, orders, products, suppliers, users
 touch .env.local
 ```
 
-<br/>
+
 
 Dodajemy zmienne środowiskowe np.:
 ```bash
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database>?retryWrites=true&w=majority
+MONGODB_URI=mongodb://<username>:<password>@127.0.0.1/<database>
 SECRET_KEY=your-secret-key
 ```
 
-<br/>
+
+
+#### uruchamiamy skrypt hashujący hasła w bazie danych
+```bash
+npm run hash
+```
 
 #### uruchamiamy projekt
 ```bash

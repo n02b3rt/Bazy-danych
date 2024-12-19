@@ -18,11 +18,13 @@
                 "quantity": 20
             }
         ],
+        "order_date": { "$date": "2024-12-17T18:17:52.855402Z" },
         "warehouse_status": "ready_to_ship",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850cc"
         },
-        "completed_status": "completed"
+        "completed_status": "completed",
+        "completion_date": { "$date": "2024-12-19T23:17:52.855402Z" }
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48eb" },
@@ -37,11 +39,13 @@
                 "quantity": 12
             }
         ],
+        "order_date": { "$date": "2024-11-25T18:17:52.855446Z" },
         "warehouse_status": "ready_to_ship",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850c8"
         },
-        "completed_status": "completed"
+        "completed_status": "completed",
+        "completion_date": { "$date": "2024-12-01T21:17:52.855446Z" }
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48ec" },
@@ -56,11 +60,13 @@
                 "quantity": 19
             }
         ],
+        "order_date": { "$date": "2024-11-22T11:17:52.855468Z" },
         "warehouse_status": "ready_to_ship",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850ce"
         },
-        "completed_status": "completed"
+        "completed_status": "completed",
+        "completion_date": { "$date": "2024-11-23T14:17:52.855468Z" }
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48ed" },
@@ -75,11 +81,13 @@
                 "quantity": 16
             }
         ],
+        "order_date": { "$date": "2024-12-16T13:17:52.855482Z" },
         "warehouse_status": "ready_to_ship",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850c9"
         },
-        "completed_status": "completed"
+        "completed_status": "completed",
+        "completion_date": { "$date": "2024-12-17T15:17:52.855482Z" }
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48ee" },
@@ -100,11 +108,13 @@
                 "quantity": 2
             }
         ],
+        "order_date": { "$date": "2024-11-28T17:17:52.855496Z" },
         "warehouse_status": "replenishing",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850ca"
         },
-        "completed_status": "not_completed"
+        "completed_status": "not_completed",
+        "completion_date": null
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48ef" },
@@ -131,11 +141,13 @@
                 "quantity": 14
             }
         ],
+        "order_date": { "$date": "2024-12-08T18:17:52.855509Z" },
         "warehouse_status": "pending",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850ca"
         },
-        "completed_status": "not_completed"
+        "completed_status": "not_completed",
+        "completion_date": null
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48f0" },
@@ -168,11 +180,13 @@
                 "quantity": 1
             }
         ],
+        "order_date": { "$date": "2024-12-15T22:17:52.855522Z" },
         "warehouse_status": "ready_to_ship",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850ce"
         },
-        "completed_status": "completed"
+        "completed_status": "completed",
+        "completion_date": { "$date": "2024-12-19T09:17:52.855522Z" }
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48f1" },
@@ -211,11 +225,13 @@
                 "quantity": 20
             }
         ],
+        "order_date": { "$date": "2024-12-06T11:17:52.855536Z" },
         "warehouse_status": "assembling",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850ce"
         },
-        "completed_status": "not_completed"
+        "completed_status": "not_completed",
+        "completion_date": null
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48f2" },
@@ -236,11 +252,13 @@
                 "quantity": 16
             }
         ],
+        "order_date": { "$date": "2024-11-26T22:17:52.855551Z" },
         "warehouse_status": "packing",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850cd"
         },
-        "completed_status": "not_completed"
+        "completed_status": "not_completed",
+        "completion_date": null
     },
     {
         "_id": { "$oid": "673bd0c56a99d3912c9f48f3" },
@@ -261,10 +279,12 @@
                 "quantity": 11
             }
         ],
+        "order_date": { "$date": "2024-11-28T14:17:52.855565Z" },
         "warehouse_status": "replenishing",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850c9"
         },
-        "completed_status": "not_completed"
+        "completed_status": "not_completed",
+        "completion_date": null
     }
 ]

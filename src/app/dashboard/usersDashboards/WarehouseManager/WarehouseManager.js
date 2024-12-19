@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-import EmployeeList from "./EmployeeList/EmployeeList";
-import Page from "@/app/dashboard/user-profile/[id]/page.js";
+import './WarehouseManager.scss'
+import ShowOrders from "@/app/dashboard/components/ShowOrders/ShowOrders.js";
+
 
 export default function WarehouseManager() {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -10,13 +11,10 @@ export default function WarehouseManager() {
         setSelectedUser(user); // Ustawia użytkownika do edycji
     };
 
-    const handleBack = () => {
-        setSelectedUser(null); // Resetuje widok do listy użytkowników
-    };
 
     return (
-        <div>
-                <EmployeeList onEditUser={handleEditUser} />
-        </div>
+        <section className="WarehouseManager">
+            <ShowOrders/>
+        </section>
     );
 }

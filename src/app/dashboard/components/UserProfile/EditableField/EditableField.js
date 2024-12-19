@@ -7,7 +7,7 @@ export default function EditableField({ label, name, value, onChange, error, typ
 
     return (
         <label>
-            {label}:
+            <strong>{label}:</strong>
             <input
                 type={type}
                 name={name}

@@ -1,0 +1,25 @@
+.RoleHeader{
+  position:fixed;
+  top:55px;
+  right: 0;
+  height:40px;
+  width:100%;
+  background: #8a8a8a;
+  box-shadow: 0 0px 8px rgba(0,0,0,0.5);
+  display:grid;
+  justify-items: center;
+  align-items: center;
+  &__menu{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    column-gap: 10px;
+    &__item{
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #8a8a8a;
+    }
+  }
+}

@@ -1,11 +1,14 @@
 "use client";
+
+import { useState } from "react";
 import './Header.scss';
 import { useRouter } from "next/navigation";
 import { logoutUser } from "@/lib/auth.js";
 
 export default function Header({ email, role, userId }) {
     const router = useRouter();
-    console.log(email,role,userId);
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // Stan zarządzający widocznością menu
+
     const handleLogout = async () => {
         try {
             await logoutUser();
@@ -27,6 +30,10 @@ export default function Header({ email, role, userId }) {
         router.push("/dashboard"); // Przeniesienie do /dashboard
     };
 
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen); // Toggle the menu visibility
+    };
+
     if (!email || !role) {
         console.error("Invalid or missing user data in Header.");
         return null; // Nie renderuj, jeśli dane użytkownika są niepoprawne
@@ -42,33 +49,28 @@ export default function Header({ email, role, userId }) {
                 aria-label="Przejdź na stronę główną"
                 style={{ cursor: "pointer" }}
             >
-                GSM-Warehouse.com
+                GSM-WH.com
             </p>
-            <div className="header__menu">
-                <span>
-                    Zalogowano:
-                    <strong
-                        onClick={handleProfileClick}
-                        className="header__menu__email"
-                        title="Kliknij, aby edytować swój profil"
-                        role="button"
-                        aria-label="Edytuj swój profil"
-                        style={{ cursor: "pointer" }}
-                    >
-                        {email}
-                    </strong>
-                </span>
-                <span className="header__role">
+
+            {/* Hamburger Icon for mobile */}
+            <div className="header__hamburger" onClick={toggleMenu}>
+                <div className="header__hamburger__bar"></div>
+                <div className="header__hamburger__bar"></div>
+                <div className="header__hamburger__bar"></div>
+            </div>
+
+            {/* Menu for large screens */}
+            <div className={`header__menu ${isMenuOpen ? 'active' : ''}`}>
+                <div className="header__menu__item" onClick={handleProfileClick}>
+                    <strong>{email}</strong>
+                </div>
+                <div className="header__menu__item">
                     Rola: <strong>{role}</strong>
-                </span>
-                <button
-                    className="header__menu__btn"
-                    onClick={handleLogout}
-                    title="Wyloguj się"
-                    aria-label="Wyloguj się"
-                >
+                </div>
+                <button className="header__menu__btn" onClick={handleLogout}>
                     Log out
                 </button>
+                <button className="header__close-btn" onClick={toggleMenu}>&times;</button>
             </div>
         </header>
     );

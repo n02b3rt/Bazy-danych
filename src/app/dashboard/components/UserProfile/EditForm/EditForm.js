@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import EditableField from "../EditableField/EditableField";
+import './EditForm.scss'
 
 export default function EditForm({ editableFields, formData, userId, onCancel }) {
     const [localData, setLocalData] = useState({ ...formData });
@@ -85,7 +86,7 @@ export default function EditForm({ editableFields, formData, userId, onCancel })
     };
 
     return (
-        <form>
+        <form className='EditForm'>
             {editableFields.map((field) => (
                 <EditableField
                     key={field}
@@ -97,12 +98,14 @@ export default function EditForm({ editableFields, formData, userId, onCancel })
                     type={field === "date_of_birth" || field === "start_date" ? "date" : "text"}
                 />
             ))}
-            <button type="button" onClick={handleSave} disabled={isSaving}>
-                {isSaving ? "Zapisywanie..." : "Zapisz"}
-            </button>
-            <button type="button" onClick={onCancel} disabled={isSaving}>
-                Anuluj
-            </button>
+            <div className='EditForm__buttons'>
+                <button type="button" onClick={handleSave} disabled={isSaving}>
+                    {isSaving ? "Zapisywanie..." : "Zapisz"}
+                </button>
+                <button type="button" onClick={onCancel} disabled={isSaving}>
+                    Anuluj
+                </button>
+            </div>
         </form>
     );
 }

@@ -4,26 +4,20 @@
         "name": "ElectroWorld",
         "contact_person": "Adam Kowalski",
         "phone_number": "+48 877057471",
-        "email": "electroworld@example.com",
-        "delivery_status": "delivered",
-        "linked_orders": []
+        "email": "electroworld@example.com"
     },
     {
         "_id": { "$oid": "673bd1806a99d36b30e420d2" },
         "name": "TechSupply Co.",
         "contact_person": "Anna Nowak",
         "phone_number": "+48 631510503",
-        "email": "techsupplyco.@example.com",
-        "delivery_status": "delivered",
-        "linked_orders": []
+        "email": "techsupplyco.@example.com"
     },
     {
         "_id": { "$oid": "673bd1806a99d36b30e420d3" },
         "name": "Gadget Distributors",
-        "contact_person": "Piotr Wi\u015bniewski",
+        "contact_person": "Piotr Wiśniewski",
         "phone_number": "+48 746479682",
-        "email": "gadgetdistributors@example.com",
-        "delivery_status": "delivered",
-        "linked_orders": []
+        "email": "gadgetdistributors@example.com"
     }
 ]
