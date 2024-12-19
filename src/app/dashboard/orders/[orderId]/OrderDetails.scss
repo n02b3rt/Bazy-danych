@@ -1,0 +1,123 @@
+.order-details-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.start-button, .check-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  z-index: 999999999999;
+}
+
+.start-button:hover, .check-button:hover {
+  background-color: #0056b3;
+}
+
+.qr-reader {
+  width: 100%;
+  max-width: 400px;
+  //height: 400px;
+  margin: 0 auto 20px;
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+.products-list {
+  list-style: none;
+  padding: 0;
+}
+
+.products-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.products-list li.scanned {
+  background-color: #d4edda; // Zielone tło dla zeskanowanych produktów
+}
+
+.logs-container {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 20px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #333;
+}
+
+.logs-container p {
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.scanned-code-container {
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 400px;
+  border: 2px dashed #007bff;
+  background-color: #e7f1ff;
+  color: #004085;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 5px;
+}
+.start-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
+
+.save-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+
+.stop-button {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.stop-button:hover {
+  background-color: #c82333;
+}
+

@@ -1,32 +1,139 @@
-.header{
+.header {
   width: 100%;
-  position:fixed;
-  top:0;
-  left:0;
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 55px;
   color: white;
   background: #414141;
-  box-shadow: 0 0px 8px rgba(0,0,0,0.5);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.5);
   display: grid;
   align-items: center;
   padding: 0 20px;
-  grid-template-columns: 1fr 1fr;
-  z-index: 999;
+  grid-template-columns: 1fr max-content;
+  z-index: 999999999;
 
-  &__logo{
+  &__logo {
     font-size: 25px;
     font-weight: bold;
+    cursor: pointer;
   }
-  &__menu{
-    display: grid;
-    justify-content: right;
+
+  /* Hamburger icon */
+  &__hamburger {
+    display: none;
+    cursor: pointer;
+
+    &__bar {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      margin: 5px 0;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     grid-template-columns: max-content max-content;
     column-gap: 20px;
-    &__btn{
+    position: relative;
+
+    &__item {
+      padding: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    &__btn {
       color: inherit;
       background: transparent;
       border: none;
       cursor: pointer;
+      box-shadow: none;
+    }
+
+    /* Menu Close Button */
+    &__close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: none; /* Hide by default */
+    }
+
+    /* When menu is active */
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .header__close-btn{
+      display: none;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+
+    /* Menu hidden by default on mobile */
+    .header__menu {
+      display: none; /* Hide menu initially */
+      position: absolute;
+      top: 55px;
+      right: 0;
+      width: 250px;
+      height: 100%;
+      background: #414141;
+      padding: 20px;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateX(100%); /* Initially off-screen */
+    }
+
+    /* Show the menu when active */
+    .header__menu.active {
+      display: block;
+      visibility: visible;
+      height: 100vh;
+      opacity: 1;
+      transform: translateX(0); /* Show the menu */
+      z-index: 999999999;
+    }
+
+    .header__menu__item{
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button{
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .header__close-btn{
+      display: block;
+      font-size: 20px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    /* Show the hamburger on mobile */
+    .header__hamburger {
+      justify-self: right;
+      display: block;
+    }
+
+    /* Show close button when menu is open */
+    .header__menu.active .header__close-btn {
+      display: block;
     }
   }
 }

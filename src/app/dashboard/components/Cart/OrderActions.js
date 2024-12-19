@@ -21,8 +21,8 @@ export const submitOrder = async (cart, loggedInUser, setCart, setIsPopupVisible
             quantity: item.quantity,
         })),
         order_date: new Date().toISOString(),
-        warehouse_status: isWarehouseManager ? "supplementary_products" : "pending",
-        assigned_worker_id: isWarehouseManager ? null : loggedInUser._id,
+        warehouse_status: isWarehouseManager ? "supplementary_products" : "assembling",
+        assigned_worker_id: null,
         completed_status: "not_completed",
         completion_date: null
     };
