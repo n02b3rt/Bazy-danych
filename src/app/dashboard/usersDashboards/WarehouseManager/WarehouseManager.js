@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import './WarehouseManager.scss'
-import ShowOrders from "@/app/dashboard/components/ShowOrders/ShowOrders.js";
+import ShowOrders from "@/app/dashboard/components/features/ShowOrders/ShowOrders.js";
 
 
 export default function WarehouseManager() {

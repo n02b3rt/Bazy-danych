@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./add-suppliers.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function AddSuppliersPage() {
     const [formData, setFormData] = useState({
@@ -78,7 +79,7 @@ export default function AddSuppliersPage() {
                         required
                     />
                 </label>
-                <button type="submit">Dodaj dostawcę</button>
+                <Button type="submit">Dodaj dostawcę</Button>
             </form>
         </div>
     );

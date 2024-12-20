@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ShowProduct from "@/app/dashboard/product-page/ShowProduct/ShowProduct";
-import Cart from "@/app/dashboard/components/Cart/Cart";
+import Cart from "@/app/dashboard/components/features/Cart/Cart";
 import Alert from "@/components/Alert/Alert";
 import "./ProductList.scss";
 

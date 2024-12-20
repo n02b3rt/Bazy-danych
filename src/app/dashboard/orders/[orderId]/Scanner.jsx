@@ -3,12 +3,13 @@ import { useState, useRef } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
 
 const Scanner = ({ order, setScannedProducts, scannedProducts }) => {
-    const [isScanning, setIsScanning] = useState(false); // Flag for scanner
-    const [currentScannedCode, setCurrentScannedCode] = useState(null); // Current scanned code
-    const [scanButtonDisabled, setScanButtonDisabled] = useState(false); // Flag to disable the scan button
-    const scannerRef = useRef(null); // Ref for the scanner
+    const [isScanning, setIsScanning] = useState(false); // Flaga do skanera
+    const [currentScannedCode, setCurrentScannedCode] = useState(null); // Zeskanowany kod
+    const [scanButtonDisabled, setScanButtonDisabled] = useState(false); // Flaga blokująca przycisk
+    const [sector, setSector] = useState(null); // Zmienna do przechowywania sektora
+    const scannerRef = useRef(null); // Referencja do skanera
 
-    // Function to start the scanner
+    // Funkcja do rozpoczęcia skanowania
     const startScanner = () => {
         if (!scannerRef.current && !isScanning) {
             const qrScanner = new Html5QrcodeScanner("qr-reader", {
@@ -25,7 +26,7 @@ const Scanner = ({ order, setScannedProducts, scannedProducts }) => {
         }
     };
 
-    // Function to stop the scanner
+    // Funkcja do zatrzymania skanera
     const stopScanner = () => {
         if (scannerRef.current) {
             scannerRef.current.clear().catch((error) => console.error("Error clearing scanner:", error));
@@ -34,44 +35,48 @@ const Scanner = ({ order, setScannedProducts, scannedProducts }) => {
         }
     };
 
-    // Function to handle scan success
-    const onScanSuccess = (decodedText) => {
+    // Funkcja do obsługi sukcesu skanowania
+    const onScanSuccess = async (decodedText) => {
         setCurrentScannedCode(decodedText);
 
-        // Check if the scanned code matches any product in the order
+        // Sprawdzamy, czy zeskanowany kod jest produktem w zamówieniu
         if (order && order.order_items) {
-            const validProduct = order.order_items.find((item) => {
-                if (item.product_id) {
-                    return item.product_id.toString() === decodedText;
-                }
-                return false;
-            });
+            const validProduct = order.order_items.find((item) => item.product_id.toString() === decodedText);
 
             if (validProduct) {
                 setCurrentScannedCode(decodedText);
+
+                // Jeśli status magazynu to "replenishing", wyszukujemy sektor w bazie
+                if (order.warehouse_status === "replenishing") {
+                    const response = await fetch("/api/database/inventories/find-sector", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ product_id: decodedText }),
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        setSector(data.sector); // Ustawiamy sektor
+                    } else {
+                        alert("Nie znaleziono sektora dla tego produktu.");
+                    }
+                }
             } else {
                 alert("Ten produkt nie jest wymagany w tym zamówieniu.");
             }
         }
     };
 
-    // Function to handle scan failure
+    // Funkcja do obsługi niepowodzenia skanowania
     const onScanFailure = (error) => {
-        // Ignore scan failure errors
+        // Ignorujemy błędy skanowania
     };
 
-    // Function to save the scanned code
-    // Funkcja do zapisania kodu po kliknięciu przycisku "Zatwierdź"
+    // Funkcja do zapisania zeskanowanego kodu
     const handleSaveCode = () => {
         if (!currentScannedCode) return;
 
-        // Sprawdzamy, czy produkt jest w zamówieniu
-        const validProduct = order.order_items.find((item) => {
-            if (item.product_id) {
-                return item.product_id.toString() === currentScannedCode;
-            }
-            return false; // Zwracamy false, jeśli product_id jest undefined lub null
-        });
+        const validProduct = order.order_items.find((item) => item.product_id.toString() === currentScannedCode);
 
         if (validProduct) {
             // Liczymy ile razy zeskanowano ten produkt
@@ -83,7 +88,7 @@ const Scanner = ({ order, setScannedProducts, scannedProducts }) => {
                 return;
             }
 
-            // Dodajemy produkt do zatwierdzonych kodów
+            // Dodajemy produkt do zeskanowanych kodów
             setScannedProducts((prev) => ({
                 ...prev,
                 [currentScannedCode]: alreadyScannedCount + 1, // Zwiększamy liczbę zeskanowanych produktów
@@ -93,31 +98,32 @@ const Scanner = ({ order, setScannedProducts, scannedProducts }) => {
         } else {
             alert("Nieznany produkt w zamówieniu.");
         }
-
-        // Po zatwierdzeniu kodu, blokujemy przycisk do ponownego kliknięcia
-        // setScanButtonDisabled(true);
     };
-
 
     return (
         <div>
             <div id="qr-reader" className="qr-reader"></div>
-            {/* Button to start scanning */}
+
+            {/* Przycisk do rozpoczęcia skanowania */}
             {!isScanning && (
                 <button className="start-button" onClick={startScanner}>
                     Rozpocznij skanowanie
                 </button>
             )}
 
+            {/* Wyświetlanie zeskanowanego kodu */}
             {currentScannedCode && (
                 <div>
                     <p>Zeskanowano kod: {currentScannedCode}</p>
-                    {/* Button to save the scanned code */}
+                    {/* Przycisk do zapisania zeskanowanego kodu */}
                     <button onClick={handleSaveCode} className="save-button" disabled={scanButtonDisabled}>
                         Zatwierdź
                     </button>
                 </div>
             )}
+
+            {/* Wyświetlanie sektora, jeśli status to "replenishing" */}
+            {sector && order?.warehouse_status === "replenishing" && <p>Sektor: {sector}</p>}
         </div>
     );
 };

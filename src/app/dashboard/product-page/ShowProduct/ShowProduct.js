@@ -3,6 +3,7 @@
 import { useState, useContext } from "react";
 import { UserContext } from "@/app/dashboard/layout";
 import './ShowProduct.scss';
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function ShowProduct({ product, onAddToCart }) {
     const [quantity, setQuantity] = useState(1);
@@ -43,9 +44,9 @@ export default function ShowProduct({ product, onAddToCart }) {
                 min="1"
                 {...(loggedInUser?.role !== "warehouse_manager" && { max: product.quantity })}
             />
-            <button onClick={handleAddToCart}>
+            <Button onClick={handleAddToCart}>
                 Dodaj do koszyka
-            </button>
+            </Button>
         </div>
     );
 }

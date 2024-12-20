@@ -1,25 +1,80 @@
-.RoleHeader{
-  position:fixed;
-  top:55px;
+.RoleHeader {
+  position: fixed;
+  font-size: 20px;
+  top: 55px;
   right: 0;
-  height:40px;
-  width:100%;
-  background: #8a8a8a;
+  height: 60px;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.6);
   box-shadow: 0 0px 8px rgba(0,0,0,0.5);
-  display:grid;
+  display: grid;
   justify-items: center;
   align-items: center;
-  &__menu{
-    width: 100%;
+  z-index: 1000;
+
+  &__menu {
+    width: 1000px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     column-gap: 10px;
-    &__item{
-      padding: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      background: #8a8a8a;
+  }
+
+  &__menu__item {
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    //background: #444;
+    position: relative;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: white;
+    text-align: center;
+  }
+
+  .RoleHeader__menu__item:hover {
+    transform: scale(1.05); /* Lekka animacja przy najechaniu */
+  }
+
+  /* Submenu */
+  .RoleHeader__submenu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    min-width: 180px;
+    transition: all 0.3s ease;
+  }
+
+  /* Pokaż submenu tylko po najechaniu na item */
+  .RoleHeader__menu__item:hover .RoleHeader__submenu {
+    display: block;
+  }
+
+  .RoleHeader__submenu div {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 250px;
+    color: #414141;
+    //background: #666;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+    &:hover {
+      text-decoration: underline;
     }
+    &:not(:last-child) {
+      border-bottom: 1px solid #333333;
+    }
+  }
+
+  .RoleHeader__submenu div:last-child {
+    margin-bottom: 0;
   }
 }

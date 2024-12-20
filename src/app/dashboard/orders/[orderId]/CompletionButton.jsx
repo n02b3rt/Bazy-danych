@@ -26,27 +26,46 @@ const CompletionButton = ({ order, scannedProducts, setIsCompleted }) => {
         setIsSubmitting(true); // Ustawiamy flagę, że przycisk jest kliknięty i aktualizujemy status
 
         try {
-            // Wywołanie API do zaktualizowania statusu zamówienia
-            const response = await fetch(`/api/database/orders/${order._id}`, {
-                method: "PATCH", // Używamy PATCH, aby zaktualizować status
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    warehouse_status: "packing", // Nowy status magazynu
-                }),
-            });
+            let response;
 
-            if (!response.ok) {
-                throw new Error("Nie udało się zaktualizować statusu zamówienia.");
+            // Jeśli status to "replenishing", aktualizujemy status na "completed" oraz dodajemy datę zakończenia
+            if (order.warehouse_status === "replenishing") {
+                response = await fetch(`/api/database/orders/complete-replenishing`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        orderId: order._id,
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error("Nie udało się zakończyć replenishingu.");
+                }
+                alert("Zakończono doposażanie!");
+                router.push(`/dashboard/`);
+            } else {
+                // W przypadku statusu "assembling" lub "packing", aktualizujemy tylko status magazynu
+                response = await fetch(`/api/database/orders/${order._id}`, {
+                    method: "PATCH", // Używamy PATCH, aby zaktualizować status
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        warehouse_status: "packing", // Nowy status magazynu
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error("Nie udało się zaktualizować statusu zamówienia.");
+                }
+
+                alert("Zakończono zbieranie produktów!");
+                router.push(`/dashboard/orders/pack/${order._id}`);
             }
 
-            // Ustawiamy stan jako zakończony
-            setIsCompleted(true);
-            alert("Zakończono zbieranie produktów!");
-
-            // Przekierowanie na stronę "pack/{orderId}"
-            router.push(`/dashboard/orders/pack/${order._id}`);
+            // Przekierowanie na stronę "pack/{orderId}" po zakończeniu procesu
         } catch (error) {
             console.error("Błąd podczas aktualizacji statusu zamówienia:", error);
             alert("Wystąpił błąd podczas aktualizacji statusu zamówienia.");

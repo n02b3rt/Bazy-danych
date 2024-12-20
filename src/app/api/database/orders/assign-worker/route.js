@@ -24,7 +24,8 @@ export async function PATCH(request) {
 
         const orderObjectId = new ObjectId(order_id);
         const workerObjectId = new ObjectId(assigned_worker_id);
-
+        console.log(`orderObjectId: ${orderObjectId}`);
+        console.log(`workerObjectId: ${workerObjectId}`);
         // Sprawdzenie, czy zamówienie istnieje
         const order = await db.collection("orders").findOne({ _id: orderObjectId });
         if (!order) {

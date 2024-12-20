@@ -1,4 +1,4 @@
-import "./ExportCSV.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function ExportCSV({ users }) {
     const handleExport = () => {
@@ -28,8 +28,8 @@ export default function ExportCSV({ users }) {
     };
 
     return (
-        <button className="exportCSV" onClick={handleExport}>
+        <Button className="ExportCSV" onClick={handleExport}>
             Eksportuj do CSV
-        </button>
+        </Button>
     );
 }

@@ -1,0 +1,15 @@
+.SummaryPage{
+  width: 1333px;
+  //background: red;
+
+  &__main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: #ededed;
+    padding: 40px 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}

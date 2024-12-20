@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "./add-product.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function AddProductPage() {
     const [formData, setFormData] = useState({
@@ -114,7 +115,7 @@ export default function AddProductPage() {
                         ))}
                     </select>
                 </label>
-                <button type="submit">Dodaj produkt</button>
+                <Button type="submit">Dodaj produkt</Button>
             </form>
         </div>
     );
