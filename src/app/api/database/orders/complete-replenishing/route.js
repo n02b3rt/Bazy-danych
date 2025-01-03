@@ -27,14 +27,6 @@ export async function PATCH(request) {
             });
         }
 
-        // Sprawdzamy, czy zamówienie ma status "replenishing"
-        if (order.warehouse_status === "replenishing") {
-            return new Response(JSON.stringify({ error: "Order is not in replenishing status" }), {
-                status: 400,
-                headers: { "Content-Type": "application/json" },
-            });
-        }
-
         // Zaktualizuj zamówienie: ustawienie statusu "completed" i dodanie daty zakończenia
         const result = await db.collection("orders").updateOne(
             { _id: orderObjectId },

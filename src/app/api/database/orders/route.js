@@ -37,7 +37,7 @@ export async function GET(req) {
                     localField: "user_id",
                     foreignField: "_id",
                     pipeline: [
-                        { $project: { _id: 0, name: 1, surname: 1 } }
+                        { $project: { _id: 1, name: 1, surname: 1 } }
                     ],
                     as: "user"
                 }

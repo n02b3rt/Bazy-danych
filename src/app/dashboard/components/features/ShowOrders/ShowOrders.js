@@ -42,7 +42,6 @@ const ShowOrders = () => {
         let filtered = orders;
 
         if (loggedInUser.role === "warehouse_manager") {
-            // Dla warehouse_manager pokazujemy tylko zamówienia, które mają completed_status: "not_completed"
             filtered = orders.filter(order => order.completed_status === "not_completed");
         } else if (loggedInUser.role === "warehouse_worker") {
             filtered = orders.filter(order => {
@@ -58,7 +57,6 @@ const ShowOrders = () => {
             filtered = orders.filter(order => order.user._id === loggedInUser._id);
         }
 
-        // Sortowanie: Zamówienia ze statusem ready_to_ship na górze, reszta poniżej
         filtered.sort((a, b) => {
             if (a.warehouse_status === "ready_to_ship" && b.warehouse_status !== "ready_to_ship") return -1;
             if (b.warehouse_status === "ready_to_ship" && a.warehouse_status !== "ready_to_ship") return 1;
@@ -75,6 +73,43 @@ const ShowOrders = () => {
         }
 
         setActiveOrder((prev) => (prev === orderId ? null : orderId));
+    };
+
+    // Funkcja do przypisania pracownika do zamówienia
+    const assignWorkerToOrder = async (orderId, workerId) => {
+        try {
+            const order = orders.find(o => o._id === orderId);
+
+            if(order && !order.assigned_worker) {
+
+            }
+
+            const response = await fetch("/api/database/orders/assign-worker", {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    order_id: orderId,
+                    assigned_worker_id: workerId,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Nie udało się przypisać pracownika do zamówienia.");
+            }
+
+            const data = await response.json();
+            if (data.message === "Order assigned successfully") {
+                // Po przypisaniu pracownika, przekierowujemy na stronę zamówienia
+                router.push(`/dashboard/orders/${orderId}`);
+            } else {
+                alert("Błąd podczas przypisywania pracownika.");
+            }
+        } catch (error) {
+            console.error("Błąd podczas przypisywania pracownika:", error);
+            alert("Wystąpił błąd.");
+        }
     };
 
     if (loading) return <Loading />;
@@ -100,8 +135,18 @@ const ShowOrders = () => {
                                 toggleOrderDetails={toggleOrderDetails}
                                 activeOrder={activeOrder}
                             >
-                                {/* Jeśli użytkownik jest warehouse_worker, przekierowujemy na stronę dostawy */}
-                                {loggedInUser.role === "warehouse_worker" && (
+                                {/* Jeśli użytkownik jest warehouse_worker, przekierowujemy na stronę dostawy i przypisujemy pracownika */}
+                                {loggedInUser.role === "warehouse_worker" && order.warehouse_status !== "packing" && !order.assigned_worker && (
+                                    <button
+                                        onClick={() => assignWorkerToOrder(order._id, loggedInUser._id)}
+                                        className="go-to-delivery-button"
+                                    >
+                                        Przejdź do zamówienia
+                                    </button>
+                                )}
+
+                                {/* Jeśli użytkownik jest warehouse_worker jest przypisany, przekierowujemy na stronę dostawy i przypisujemy pracownika */}
+                                {loggedInUser.role === "warehouse_worker" && order.warehouse_status !== "packing" && order.assigned_worker && (
                                     <button
                                         onClick={() => router.push(`/dashboard/orders/${order._id}`)}
                                         className="go-to-delivery-button"
@@ -110,10 +155,20 @@ const ShowOrders = () => {
                                     </button>
                                 )}
 
+                                {/* Dla warehouse_worker, jeśli status to 'packing', przekieruj na stronę pakowania */}
+                                {loggedInUser.role === "warehouse_worker" && order.warehouse_status === "packing" && (
+                                    <button
+                                        onClick={() => router.push(`/dashboard/orders/pack/${order._id}`)}
+                                        className="go-to-delivery-button"
+                                    >
+                                        Przejdź do pakowania
+                                    </button>
+                                )}
+
                                 {/* Dla warehouse_manager, pokaż przycisk do szczegółów zamówienia */}
                                 {loggedInUser.role === "warehouse_manager" && order.warehouse_status === "ready_to_ship" && order.completed_status === "not_completed" && (
                                     <button
-                                        onClick={() => router.push(`/dashboard/delivery/${order._id}`)}
+                                        onClick={() => router.push(`/dashboard/warehouse-menager/delivery/${order._id}`)}
                                         className="go-to-delivery-button"
                                     >
                                         Przejdź do zamówienia

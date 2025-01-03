@@ -45,3 +45,60 @@ export async function POST(request) {
         });
     }
 }
+
+
+export async function GET(request) {
+    try {
+        const client = await clientPromise;
+        const db = client.db("Magazyn");
+
+        // Agregacja do łączenia deliveries z orders i suppliers
+        const deliveries = await db.collection("deliveries").aggregate([
+            {
+                // Łączenie z kolekcją orders po order_id
+                $lookup: {
+                    from: "orders", // Kolekcja orders
+                    localField: "order_id", // Pole w deliveries
+                    foreignField: "_id", // Pole w orders
+                    as: "order_details" // Zwracamy dane z orders
+                }
+            },
+            {
+                // Łączenie z kolekcją suppliers po supplier_id
+                $lookup: {
+                    from: "suppliers", // Kolekcja suppliers
+                    localField: "supplier_id", // Pole w deliveries
+                    foreignField: "_id", // Pole w suppliers
+                    as: "supplier_details" // Zwracamy dane z suppliers
+                }
+            },
+            {
+                // Projektowanie odpowiedzi, aby zwrócić istotne informacje
+                $project: {
+                    _id: 1,
+                    delivery_date: 1,
+                    delivery_status: 1,
+                    "order_details._id": 1,
+                    "order_details.user_id": 1,
+                    "order_details.order_items": 1,
+                    "order_details.completion_date": 1, // Dodanie completion_date z orders
+                    "supplier_details.name": 1,
+                    "supplier_details.contact_person": 1,
+                    "supplier_details.phone_number": 1,
+                    "supplier_details.email": 1
+                }
+            }
+        ]).toArray();
+
+        return new Response(JSON.stringify(deliveries), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+        });
+    } catch (error) {
+        console.error("Error fetching deliveries:", error);
+        return new Response(JSON.stringify({ error: "Failed to fetch deliveries" }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+        });
+    }
+}

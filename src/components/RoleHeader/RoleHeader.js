@@ -30,6 +30,27 @@ export default function RoleHeader() {
                 <div className="RoleHeader__menu">
                     <div
                         className="RoleHeader__menu__item"
+                        onMouseEnter={() => handleMouseEnter('orders')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        Zamówienia
+                        {activeMenu === 'orders' && (
+                            <div className="RoleHeader__submenu">
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/orders")
+                                }}>Na Magazynie
+                                </div>
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/orders-shipped")
+                                }}>Wyslane
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div
+                        className="RoleHeader__menu__item"
                         onMouseEnter={() => handleMouseEnter('product')}
                         onMouseLeave={handleMouseLeave}
                     >
@@ -37,7 +58,9 @@ export default function RoleHeader() {
                         {activeMenu === 'product' && (
                             <div className="RoleHeader__submenu">
                                 <div onClick={() => handleClick("/dashboard/product-page")}>Zamów Produkty</div>
-                                <div onClick={() => handleClick("/dashboard/warehouse-menager/add-product")}>Dodaj nowy produkt</div>
+                                <div onClick={() => handleClick("/dashboard/warehouse-menager/add-product")}>Dodaj nowy
+                                    produkt
+                                </div>
                             </div>
                         )}
                     </div>
@@ -50,8 +73,16 @@ export default function RoleHeader() {
                         Podsumowanie
                         {activeMenu === 'summary' && (
                             <div className="RoleHeader__submenu">
-                                <div onClick={(e) => { e.stopPropagation(); handleClick("/dashboard/summary-page") }}>Podsumowanie zysków</div>
-                                <div onClick={(e) => { e.stopPropagation(); handleClick("/dashboard/warehouse-menager/payment-summary") }}>Podsumowanie płatności</div>
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/warehouse-menager/summary-page")
+                                }}>Podsumowanie zysków
+                                </div>
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/warehouse-menager/payment-summary")
+                                }}>Podsumowanie płatności
+                                </div>
                             </div>
                         )}
                     </div>
@@ -64,17 +95,35 @@ export default function RoleHeader() {
                         Pracownicy
                         {activeMenu === 'employees' && (
                             <div className="RoleHeader__submenu">
-                                <div onClick={(e) => { e.stopPropagation(); handleClick("/dashboard/warehouse-menager/employee-list") }}>Lista pracowników</div>
-                                <div onClick={(e) => { e.stopPropagation(); handleClick("/dashboard/warehouse-menager/add-user") }}>Dodaj Pracownika</div>
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/warehouse-menager/employee-list")
+                                }}>Lista pracowników
+                                </div>
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/warehouse-menager/add-user")
+                                }}>Dodaj Pracownika
+                                </div>
                             </div>
                         )}
                     </div>
 
                     <div
                         className="RoleHeader__menu__item"
-                        onClick={() => handleClick("/dashboard/warehouse-menager/add-suppliers")}
+                        onMouseEnter={() => handleMouseEnter('employees')}
+                        onMouseLeave={handleMouseLeave}
                     >
-                        Dodaj Dostawcę
+                        Dostawy
+                        {activeMenu === 'employees' && (
+                            <div className="RoleHeader__submenu">
+                                <div onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleClick("/dashboard/warehouse-menager/add-suppliers")
+                                }}>Dodaj Dostawcę
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -85,9 +134,21 @@ export default function RoleHeader() {
                 <div className="RoleHeader__menu">
                     <div
                         className="RoleHeader__menu__item"
-                        onClick={() => handleClick("/dashboard/warehouse-menager/add-suppliers")}
+                        onClick={() => handleClick("/dashboard/product-page")}
+                    >
+                        Produkty
+                    </div>
+                    <div
+                        className="RoleHeader__menu__item"
+                        onClick={() => handleClick("/dashboard/orders")}
                     >
                         Zamówienia
+                    </div>
+                    <div
+                        className="RoleHeader__menu__item"
+                        onClick={() => handleClick("/dashboard/orders-shipped")}
+                    >
+                        Dostawy
                     </div>
                 </div>
             </div>

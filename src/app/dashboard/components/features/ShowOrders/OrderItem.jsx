@@ -40,7 +40,7 @@ const OrderItem = ({ order, toggleOrderDetails, activeOrder, children }) => {
                             </li>
                         ))}
                     </ul>
-                    <p className="total-price"><strong>Łączna cena:</strong> {totalPrice} zł</p>
+                    <p className="total-price"><strong>Łączna cena:</strong> {totalPrice.toFixed(2)} zł</p>
                     {children} {/* Renderowanie przycisku, jeśli istnieje */}
                 </div>
             )}

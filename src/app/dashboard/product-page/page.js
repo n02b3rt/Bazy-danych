@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import ShowProduct from "@/app/dashboard/product-page/ShowProduct/ShowProduct";
 import Cart from "@/app/dashboard/components/features/Cart/Cart";
 import Alert from "@/components/Alert/Alert";
+import {UserContext} from "@/app/dashboard/layout.js";
+import { useRouter } from "next/navigation";
 import "./ProductList.scss";
+
 
 export default function ProductPage() {
     const [products, setProducts] = useState([]);
@@ -14,6 +17,15 @@ export default function ProductPage() {
     const [sortOption, setSortOption] = useState("alphabetical");
     const [cart, setCart] = useState([]);
     const [alertMessage, setAlertMessage] = useState(null); // Stan dla alertu
+    const loggedInUser = useContext(UserContext);
+    const router = useRouter()
+
+    useEffect(() => {
+        if (loggedInUser?.role === "warehouse_worker") {
+            // Jeśli użytkownik nie jest warehouse_manager, przekierowujemy go na stronę główną
+            router.push("/dashboard");
+        }
+    }, [loggedInUser, router]);
 
     // Fetch inventory with product details from API
     useEffect(() => {

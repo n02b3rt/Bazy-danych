@@ -30,8 +30,11 @@
   padding: 20px 0;
   ul{
     display: grid;
-    grid-template-columns: repeat(5, minmax(150px, 266.6px));
+    //grid-template-columns: repeat(5, minmax(150px, 266.6px));
     column-gap: 30px;
+    @media screen and (max-width: 425px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -43,6 +46,9 @@
 .order-summary {
   display: grid;
   grid-template-columns: 80px 1fr 1fr 1fr max-content 1fr;
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
   column-gap: 15px;
 }
 

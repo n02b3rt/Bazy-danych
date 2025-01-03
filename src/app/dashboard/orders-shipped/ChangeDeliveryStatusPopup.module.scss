@@ -1,0 +1,90 @@
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContainer {
+  background-color: white;
+  display: grid;
+  row-gap: 20px;
+  justify-content: center;
+  padding: 40px;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.formGroup{
+  font-size: medium;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: 1fr;
+  text-align: center;
+  select{
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+.title {
+  text-align: center;
+}
+
+.formControl {
+  margin-top: 10px;
+}
+
+.formControl label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.selectInput {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.changeStatusButton {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.changeStatusButton:hover {
+  background-color: #45a049;
+}

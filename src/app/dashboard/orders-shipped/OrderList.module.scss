@@ -1,0 +1,26 @@
+/* src/app/dashboard/orders-shipped/OrderList.module.scss */
+
+.orderList {
+  list-style-type: none;
+  margin-top: 30px;
+
+  .orderItem {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
+    .orderDetails {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(150px, 266.6px)) max-content;
+      p {
+        margin: 5px 0;
+        font-size: 16px;
+      }
+      button{
+        padding: 5px 20px;
+      }
+    }
+  }
+}

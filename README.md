@@ -73,6 +73,14 @@ npm run hash
 ```bash
 npm run dev
 ```
+
+#### Aby działało skanowanie kodów qr (potrzebny jest ssl) 
+```bash
+ngrok http http://localhost:3000
+```
+#### i następnie korzystamy z linku który wygeneruje nam ngrok
+
+
 # Dokumentacja modeli w MongoDB
 
 Ten dokument przedstawia modele w formacie JSON dla bazy danych MongoDB. Modele zostały zdefiniowane przy użyciu walidacji `$jsonSchema`, co pozwala na określenie wymaganych pól oraz typów danych.

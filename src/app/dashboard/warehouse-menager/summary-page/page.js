@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useContext } from "react";
-import OrdersList from "./OrdersList";
-import MonthlySummary from "./MonthlySummary";
-import RevenueChart from "./RevenueChart";
-import { UserContext } from "@/app/dashboard/layout";  // Importujemy UserContext
+import OrdersList from "./OrdersList.js";
+import MonthlySummary from "./MonthlySummary.js";
+import RevenueChart from "./RevenueChart.js";
+import { UserContext } from "@/app/dashboard/layout.js";  // Importujemy UserContext
 import './summaryPage.scss';
 
 const SummaryPage = () => {
@@ -36,7 +36,7 @@ const SummaryPage = () => {
                     if (profitLoss >= 0) {
                         revenue += profitLoss;
                     } else {
-                        expenses += Math.abs(profitLoss);
+                        expenses += Math.abs(profitLoss)*0.77;
                     }
                 });
 

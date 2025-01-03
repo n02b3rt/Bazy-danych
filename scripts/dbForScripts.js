@@ -5,7 +5,7 @@ import path from "path";
 config({ path: path.resolve(process.cwd(), ".env.local") }); // Wymusza załadowanie zmiennych z pliku .env.local
 
 if (!process.env.MONGODB_URI) {
-    throw new Error("Please add your Mongo URI to .env.local");
+    throw new Error("Please status your Mongo URI to .env.local");
 }
 
 const uri = process.env.MONGODB_URI;

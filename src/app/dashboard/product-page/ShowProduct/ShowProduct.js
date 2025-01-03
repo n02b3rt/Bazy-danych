@@ -1,6 +1,6 @@
 // src/components/ShowProduct/ShowProduct.jsx
 
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "@/app/dashboard/layout";
 import './ShowProduct.scss';
 import Button from "@/app/dashboard/components/ui/Button/Button.js";
@@ -10,11 +10,11 @@ export default function ShowProduct({ product, onAddToCart }) {
     const loggedInUser = useContext(UserContext);
 
     const handleAddToCart = () => {
+        console.log("przycisk działą")
         if (!product.product_id) {
             console.error("❌ Brak product_id w produkcie:", product);
             return;
         }
-
         onAddToCart({
             product_id: product.product_id,
             product_name: product.product_name,
@@ -44,9 +44,16 @@ export default function ShowProduct({ product, onAddToCart }) {
                 min="1"
                 {...(loggedInUser?.role !== "warehouse_manager" && { max: product.quantity })}
             />
-            <Button onClick={handleAddToCart}>
-                Dodaj do koszyka
-            </Button>
+            {product.quantity === 0 && loggedInUser?.role === "warehouse_manager" && (
+                <Button onClick={handleAddToCart}>
+                    Dodaj do koszyka
+                </Button>
+            )}
+            {product.quantity > 0 && (
+                <Button onClick={handleAddToCart}>
+                    Dodaj do koszyka
+                </Button>
+            )}
         </div>
     );
 }

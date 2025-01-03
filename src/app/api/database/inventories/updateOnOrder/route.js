@@ -17,6 +17,7 @@ export async function POST(req) {
         for (let item of orderData.order_items) {
             try {
                 const productId = new ObjectId(item.product_id);
+
                 const quantityChange = isWarehouseManager ? item.quantity : -item.quantity;
 
                 console.log(`🔄 Aktualizacja dla produktu o ID: ${productId}, zmiana ilości: ${quantityChange}`);

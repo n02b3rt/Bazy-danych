@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useContext } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { UserContext } from "@/app/dashboard/layout"; // Importujemy kontekst użytkownika
+import { UserContext } from "@/app/dashboard/layout.js"; // Importujemy kontekst użytkownika
+import style from './delivery.module.scss'
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 const DeliveryOrderPage = () => {
     const { deliveryOrderId } = useParams(); // Odbieramy orderId z URL
@@ -95,10 +97,10 @@ const DeliveryOrderPage = () => {
     };
 
     return (
-        <div>
-            <h2>Zakończenie doposażania: {deliveryOrderId}</h2>
+        <div className={style.deliveryPageContainer}>
+            <h2>Zakończenie doposażania <br/>{deliveryOrderId}</h2>
 
-            <div>
+            <div className={style.deliveryPageForm}>
                 <label htmlFor="supplier">Wybierz dostawcę:</label>
                 <select
                     id="supplier"
@@ -116,7 +118,7 @@ const DeliveryOrderPage = () => {
 
             <p><strong>Data dostawy: </strong>{new Date(deliveryDate).toLocaleDateString()}</p>
 
-            <button onClick={handleComplete}>Zakończ doposażanie</button>
+            <Button onClick={handleComplete}>Zakończ doposażanie</Button>
         </div>
     );
 };

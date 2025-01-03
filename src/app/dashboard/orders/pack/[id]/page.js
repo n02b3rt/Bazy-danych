@@ -25,7 +25,7 @@ const OrderDetails = () => {
 
                 // Pobieramy dane użytkownika na podstawie `user_id` z zamówienia
                 if (data && data.user && data.user._id) {
-                    const userResponse = await fetch(`/api/database/users/${data.user._id}`); // Używamy data.user._id
+                    const userResponse = await fetch(`/api/database/users/${data.user._id}`);
                     if (!userResponse.ok) {
                         throw new Error("Nie udało się pobrać danych użytkownika");
                     }
@@ -135,11 +135,8 @@ const OrderDetails = () => {
                                 <p>Imię: {user.name}</p>
                                 <p>Nazwisko: {user.surname}</p>
                                 <p>Email: {user.email}</p>
-                                <p>Data urodzenia: {new Date(user.date_of_birth).toLocaleDateString()}</p>
                                 <p>Adres: {user.address}</p>
                                 <p>Telefon: {user.phone_number}</p>
-                                <p>Numer konta: {user.bank_account}</p>
-                                <p>Wynagrodzenie: {user.salary} PLN</p>
                             </div>
                         </div>
                     )}
