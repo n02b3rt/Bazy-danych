@@ -142,7 +142,7 @@
             }
         ],
         "order_date": { "$date": "2024-12-08T18:17:52.855509Z" },
-        "warehouse_status": "pending",
+        "warehouse_status": "assembling",
         "assigned_worker_id": {
             "$oid": "673bce5c6a99d392105850ca"
         },

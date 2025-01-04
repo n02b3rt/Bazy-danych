@@ -92,7 +92,7 @@ Ten dokument przedstawia modele w formacie JSON dla bazy danych MongoDB. Modele 
 Reprezentuje produkty w systemie.
 
 ```javascript
-db.createCollection("users", {
+db.createCollection("products", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
@@ -122,6 +122,7 @@ db.createCollection("users", {
         }
     }
 });
+
 ```
 
 ### 2. Supplier Model
@@ -133,7 +134,7 @@ db.createCollection("suppliers", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["name", "contact_person", "phone_number", "email", "delivery_status"],
+            required: ["name", "contact_person", "phone_number", "email"],
             properties: {
                 _id: {
                     bsonType: "objectId",
@@ -154,17 +155,6 @@ db.createCollection("suppliers", {
                 email: {
                     bsonType: "string",
                     description: "Email is required and must be a string."
-                },
-                delivery_status: {
-                    bsonType: "string",
-                    description: "Delivery status is required and must be a string."
-                },
-                linked_orders: {
-                    bsonType: "array",
-                    items: {
-                        bsonType: "objectId"
-                    },
-                    description: "Array of linked orders' IDs."
                 }
             }
         }
@@ -182,7 +172,7 @@ db.createCollection("orders", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["user_id", "order_items", "warehouse_status", "completed_status"],
+            required: ["user_id", "order_items", "order_date", "warehouse_status", "assigned_worker_id", "completed_status"],
             properties: {
                 _id: {
                     bsonType: "objectId",
@@ -190,7 +180,7 @@ db.createCollection("orders", {
                 },
                 user_id: {
                     bsonType: "objectId",
-                    description: "User ID is required and must be an ObjectId."
+                    description: "ID of the user who placed the order."
                 },
                 order_items: {
                     bsonType: "array",
@@ -200,27 +190,35 @@ db.createCollection("orders", {
                         properties: {
                             product_id: {
                                 bsonType: "objectId",
-                                description: "Product ID is required and must be an ObjectId."
+                                description: "ID of the product in the order."
                             },
                             quantity: {
-                                bsonType: "number",
-                                description: "Quantity is required and must be a number."
+                                bsonType: "int",
+                                description: "Quantity of the product in the order."
                             }
                         }
                     },
-                    description: "List of items in the order."
+                    description: "Array of items in the order, each containing a product and quantity."
+                },
+                order_date: {
+                    bsonType: "date",
+                    description: "Date when the order was placed."
                 },
                 warehouse_status: {
                     bsonType: "string",
-                    description: "Warehouse status is required and must be a string."
+                    description: "Current status of the order in the warehouse ('assembling', 'packing', 'ready_to_ship', 'replenishing')."
                 },
                 assigned_worker_id: {
                     bsonType: "objectId",
-                    description: "Assigned worker's ID must be an ObjectId."
+                    description: "ID of the worker assigned to process the order."
                 },
                 completed_status: {
                     bsonType: "string",
-                    description: "Completion status is required and must be a string."
+                    description: "Completion status of the order ('completed', 'not_completed')."
+                },
+                completion_date: {
+                    bsonType: "date",
+                    description: "Date when the order was completed (nullable)."
                 }
             }
         }
@@ -246,25 +244,25 @@ db.createCollection("deliveries", {
                 },
                 order_id: {
                     bsonType: "objectId",
-                    description: "Order ID is required and must be an ObjectId."
+                    description: "ID of the order being delivered."
                 },
                 delivery_date: {
                     bsonType: "date",
-                    description: "Delivery date is required and must be a date."
+                    description: "Date and time of the delivery."
                 },
                 supplier_id: {
                     bsonType: "objectId",
-                    description: "Supplier ID is required and must be an ObjectId."
+                    description: "ID of the supplier responsible for the delivery."
                 },
                 delivery_status: {
                     bsonType: "string",
-                    description: "Delivery status is required and must be a string."
+                    enum: ["sent","delayed", "delivered", "being_delivered"],
+                    description: "Status of the delivery (delayed, delivered, or being_delivered)."
                 }
             }
         }
     }
 });
-
 ```
 
 
@@ -273,84 +271,73 @@ db.createCollection("deliveries", {
 Reprezentuje użytkowników systemu.
 
 ```javascript
-db.createCollection("users", {
+db.createCollection("employees", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: [
-                "name",
-                "surname",
-                "email",
-                "password_hash",
-                "role",
-                "date_of_birth",
-                "start_date",
-                "personal_id",
-                "address",
-                "phone_number",
-                "bank_account",
-                "salary"
-            ],
+            required: ["name", "surname", "email", "password_hash", "role", "date_of_birth", "start_date", "personal_id", "address", "phone_number", "bank_account", "salary"],
             properties: {
                 _id: {
                     bsonType: "objectId",
-                    description: "Unique identifier for the user."
+                    description: "Unique identifier for the employee."
                 },
                 name: {
                     bsonType: "string",
-                    description: "User's first name is required and must be a string."
+                    description: "Employee's first name."
                 },
                 surname: {
                     bsonType: "string",
-                    description: "User's last name is required and must be a string."
+                    description: "Employee's surname."
                 },
                 email: {
                     bsonType: "string",
-                    description: "Email is required and must be a string."
+                    description: "Employee's email address."
                 },
                 password_hash: {
                     bsonType: "string",
-                    description: "Password hash is required and must be a string."
+                    description: "Employee's password hash."
                 },
                 role: {
                     bsonType: "string",
-                    description: "Role is required and must be a string, e.g., 'warehouse_manager', 'warehouse_worker', or 'store_manager'."
+                    description: "Employee's role in the company (e.g., warehouse_worker, store_manager, warehouse_manager)."
                 },
                 date_of_birth: {
                     bsonType: "date",
-                    description: "Date of birth is required and must be a valid date."
+                    description: "Employee's date of birth."
                 },
                 start_date: {
                     bsonType: "date",
-                    description: "Start date is required and must be a valid date."
+                    description: "Date when the employee started working."
+                },
+                end_date: {
+                    bsonType: "date",
+                    description: "Date when the employee finished or will finish working (nullable)."
                 },
                 personal_id: {
                     bsonType: "string",
-                    pattern: "^[0-9]{11}$",
-                    description: "Personal ID is required, must be 11 numeric characters, and unique."
+                    description: "Employee's personal identification number."
                 },
                 address: {
                     bsonType: "string",
-                    description: "User's address is required and must be a string."
+                    description: "Employee's residential address."
                 },
                 phone_number: {
                     bsonType: "string",
-                    pattern: "^[+0-9 ]{9,15}$",
-                    description: "Phone number is required, must be a string, and follow valid formats."
+                    description: "Employee's phone number."
                 },
                 bank_account: {
                     bsonType: "string",
-                    description: "Bank account is required and must be a valid IBAN."
+                    description: "Employee's bank account number."
                 },
                 salary: {
                     bsonType: "number",
-                    minimum: 0,
-                    description: "Salary is required and must be a positive number. For 'store_manager', the salary is set to 0."
+                    description: "Employee's salary."
                 }
             }
         }
     }
 });
+
 ```
 
 
@@ -365,20 +352,26 @@ db.createCollection("inventory", {
             bsonType: "object",
             required: ["product_id", "quantity", "sector"],
             properties: {
+                _id: {
+                    bsonType: "objectId",
+                    description: "Unique identifier for the inventory record."
+                },
                 product_id: {
                     bsonType: "objectId",
-                    description: "Product ID is required and must be an ObjectId."
+                    description: "ID of the product in the inventory."
                 },
                 quantity: {
-                    bsonType: "number",
-                    description: "Quantity is required and must be a number."
+                    bsonType: "int",
+                    description: "Quantity of the product in the inventory."
                 },
                 sector: {
                     bsonType: "string",
-                    description: "Sector is required and must be a string."
+                    enum: ["Sector A", "Sector B", "Sector C", "Sector D", "Sector E", "Sector F"],
+                    description: "The sector where the product is located, must be one of the defined sectors."
                 }
             }
         }
     }
 });
+
 ```
