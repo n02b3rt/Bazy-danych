@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
     try {
         const client = await clientPromise;
         const db = client.db("Magazyn");
-        console.log("PRACOWNIK KURWA: " + new ObjectId(id))
+        console.log("PRACOWNIK: " + new ObjectId(id))
         const user = await db.collection("users").findOne({ _id: new ObjectId(id) });
 
         if (!user) {

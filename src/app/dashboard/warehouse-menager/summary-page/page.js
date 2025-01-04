@@ -4,7 +4,6 @@ import { useEffect, useState, useContext } from "react";
 import OrdersList from "./OrdersList.js";
 import MonthlySummary from "./MonthlySummary.js";
 import RevenueChart from "./RevenueChart.js";
-import { UserContext } from "@/app/dashboard/layout.js";  // Importujemy UserContext
 import './summaryPage.scss';
 
 const SummaryPage = () => {
@@ -12,12 +11,7 @@ const SummaryPage = () => {
     const [totalRevenue, setTotalRevenue] = useState(0);
     const [totalExpenses, setTotalExpenses] = useState(0);
     const [sortBy, setSortBy] = useState('date');  // Nowy stan dla sortowania
-    const loggedInUser = useContext(UserContext); // Używamy UserContext do sprawdzenia roli użytkownika
 
-    // Sprawdzamy, czy użytkownik jest menedżerem magazynu, jeśli nie - wyświetlamy komunikat
-    if (!loggedInUser || loggedInUser.role !== 'warehouse_manager') {
-        return <p>Brak dostępu! Tylko menedżer magazynu ma dostęp do tej strony.</p>;
-    }
 
     // Pobieranie danych z zamówieniami
     useEffect(() => {

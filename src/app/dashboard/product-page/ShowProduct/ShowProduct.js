@@ -12,7 +12,7 @@ export default function ShowProduct({ product, onAddToCart }) {
     const handleAddToCart = () => {
         console.log("przycisk działą")
         if (!product.product_id) {
-            console.error("❌ Brak product_id w produkcie:", product);
+            console.error("Brak product_id w produkcie:", product);
             return;
         }
         onAddToCart({

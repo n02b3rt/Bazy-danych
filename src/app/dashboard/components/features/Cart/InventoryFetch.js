@@ -8,12 +8,12 @@ const InventoryFetch = async (setInventory) => {
                 inventoryMap[item.product_id] = item.quantity;
             });
             setInventory(inventoryMap);
-            console.log("✅ Dane inventory pobrane pomyślnie:", inventoryMap);
+            console.log("Dane inventory pobrane pomyślnie:", inventoryMap);
         } else {
-            console.error("❌ Błąd podczas pobierania inventory:", response.statusText);
+            console.error("Błąd podczas pobierania inventory:", response.statusText);
         }
     } catch (error) {
-        console.error("❌ Błąd podczas pobierania inventory:", error);
+        console.error("Błąd podczas pobierania inventory:", error);
     }
 };
 

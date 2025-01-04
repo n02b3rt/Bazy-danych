@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/auth";
-import QRCodeScanner from "@/app/QRCodeScanner.jsx";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");

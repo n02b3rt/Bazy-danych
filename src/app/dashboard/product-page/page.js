@@ -22,7 +22,6 @@ export default function ProductPage() {
 
     useEffect(() => {
         if (loggedInUser?.role === "warehouse_worker") {
-            // Jeśli użytkownik nie jest warehouse_manager, przekierowujemy go na stronę główną
             router.push("/dashboard");
         }
     }, [loggedInUser, router]);
@@ -34,7 +33,7 @@ export default function ProductPage() {
                 const response = await fetch("/api/database/inventories/get");
                 if (response.ok) {
                     const data = await response.json();
-                    console.log("✅ Dane inventory pobrane pomyślnie:", data);
+                    console.log("Dane inventory pobrane pomyślnie:", data);
 
                     // Agregowanie produktów o tym samym product_id
                     const aggregatedProducts = data.reduce((acc, item) => {
@@ -52,10 +51,10 @@ export default function ProductPage() {
                     setProducts(uniqueProducts);
                     setFilteredProducts(uniqueProducts);
                 } else {
-                    console.error("❌ Błąd podczas pobierania danych:", response.statusText);
+                    console.error("Błąd podczas pobierania danych:", response.statusText);
                 }
             } catch (error) {
-                console.error("❌ Błąd podczas pobierania danych:", error);
+                console.error("Błąd podczas pobierania danych:", error);
             } finally {
                 setLoading(false);
             }
@@ -97,12 +96,11 @@ export default function ProductPage() {
 
 
     const addToCart = (product) => {
-        console.log("🛒 Otrzymany produkt do dodania:", product);
-
+        console.log("Otrzymany produkt do dodania:", product);
         const productId = product.product_id?.toString();
 
         if (!productId) {
-            console.error("❌ Nie można dodać produktu do koszyka: brak prawidłowego ID.");
+            console.error("Nie można dodać produktu do koszyka: brak prawidłowego ID.");
             setAlertMessage("Nie można dodać produktu do koszyka: brak prawidłowego ID.");
             return;
         }

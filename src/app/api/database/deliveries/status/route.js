@@ -8,13 +8,6 @@ export async function PATCH(request) {
         // Pobieramy dane z żądania
         const { order_id, delivery_status } = await request.json();
 
-        // Sprawdzamy, czy order_id jest poprawnym ObjectId
-        if (!ObjectId.isValid(order_id)) {
-            return new Response(JSON.stringify({ error: "Invalid order ID format" }), {
-                status: 400,
-                headers: { "Content-Type": "application/json" },
-            });
-        }
 
         // Łączenie z bazą danych
         const client = await clientPromise;
@@ -35,13 +28,6 @@ export async function PATCH(request) {
             { order_id: new ObjectId(order_id) },
             { $set: { delivery_status } }
         );
-
-        if (result.modifiedCount === 0) {
-            return new Response(JSON.stringify({ error: "Failed to update delivery status" }), {
-                status: 500,
-                headers: { "Content-Type": "application/json" },
-            });
-        }
 
         return new Response(JSON.stringify({ message: "Delivery status updated successfully" }), {
             status: 200,

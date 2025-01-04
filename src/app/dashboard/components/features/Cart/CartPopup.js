@@ -4,15 +4,7 @@ import { submitOrder } from "./OrderActions.js";
 import Alert from "@/components/Alert/Alert.js";
 import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
-export default function CartPopup({
-                                      cart,
-                                      setCart,
-                                      inventory,
-                                      setIsPopupVisible,
-                                      alertMessage,
-                                      setAlertMessage,
-                                      loggedInUser,
-                                  }) {
+export default function CartPopup({cart, setCart, inventory, setIsPopupVisible, alertMessage, setAlertMessage, loggedInUser,}) {
     const updateCartQuantity = (productId, quantity) => {
         const availableQuantity = inventory[productId] || 0;
 

@@ -1,13 +1,8 @@
 export const submitOrder = async (cart, loggedInUser, setCart, setIsPopupVisible) => {
-    console.log("📝 Próba złożenia zamówienia...");
-
-    if (!loggedInUser) {
-        console.error("❌ Brak zalogowanego użytkownika!");
-        return;
-    }
+    console.log("Próba złożenia zamówienia...");
 
     if (cart.length === 0) {
-        console.error("❌ Koszyk jest pusty! Nie można złożyć zamówienia.");
+        console.error("Koszyk jest pusty! Nie można złożyć zamówienia.");
         alert("Koszyk jest pusty! Dodaj produkty przed złożeniem zamówienia.");
         return;
     }
@@ -54,7 +49,7 @@ export const submitOrder = async (cart, loggedInUser, setCart, setIsPopupVisible
         setCart([]);
         setIsPopupVisible(false);
     } catch (error) {
-        console.error("❌ Błąd podczas składania zamówienia:", error);
+        console.error("Błąd podczas składania zamówienia:", error);
         alert("Wystąpił błąd. Spróbuj ponownie później.");
     }
 };
