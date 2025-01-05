@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useContext } from "react";
 import { useRouter, useParams } from "next/navigation";
-import EditForm from "@/app/dashboard/components/UserProfile/EditForm/EditForm";
-import ReadOnlyProfile from "@/app/dashboard/components/UserProfile/ReadOnlyProfile/ReadOnlyProfile";
+import EditForm from "@/app/dashboard/user-profile/EditForm/EditForm";
+import ReadOnlyProfile from "@/app/dashboard/user-profile/ReadOnlyProfile/ReadOnlyProfile";
 import { UserContext } from "@/app/dashboard/layout";
 import './UserProfile.scss'
 

@@ -1,0 +1,80 @@
+/* src/app/dashboard/components/ShowOrders.scss */
+
+.orders-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.orders-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-item {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.order-details{
+  padding: 20px 0;
+  ul{
+    display: grid;
+    //grid-template-columns: repeat(5, minmax(150px, 266.6px));
+    column-gap: 30px;
+    @media screen and (max-width: 425px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.total-price{
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.order-summary {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr max-content 1fr;
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
+  column-gap: 15px;
+}
+
+.product-item {
+  margin-bottom: 10px;
+}
+
+.completed-status {
+  font-weight: bold;
+}
+
+.completed {
+  color: green;
+}
+
+.not-completed {
+  color: red;
+}
+
+.loading,
+.error {
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+.no-orders {
+  font-size: 18px;
+  color: #95a5a6;
+}

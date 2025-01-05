@@ -1,0 +1,17 @@
+.orders-list{
+  li{
+    list-style: none;
+  }
+
+}
+
+.order-details{
+  display: grid;
+  grid-template-columns: max-content repeat(4,minmax(200px, 250px));
+  column-gap: 50px;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 20px 0;
+  background: #ededed;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+}

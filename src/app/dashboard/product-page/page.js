@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import ShowProduct from "@/app/dashboard/product-page/ShowProduct/ShowProduct";
-import Cart from "@/app/dashboard/components/Cart/Cart";
+import Cart from "@/app/dashboard/components/features/Cart/Cart";
 import Alert from "@/components/Alert/Alert";
+import {UserContext} from "@/app/dashboard/layout.js";
+import { useRouter } from "next/navigation";
 import "./ProductList.scss";
+
 
 export default function ProductPage() {
     const [products, setProducts] = useState([]);
@@ -14,6 +17,14 @@ export default function ProductPage() {
     const [sortOption, setSortOption] = useState("alphabetical");
     const [cart, setCart] = useState([]);
     const [alertMessage, setAlertMessage] = useState(null); // Stan dla alertu
+    const loggedInUser = useContext(UserContext);
+    const router = useRouter()
+
+    useEffect(() => {
+        if (loggedInUser?.role === "warehouse_worker") {
+            router.push("/dashboard");
+        }
+    }, [loggedInUser, router]);
 
     // Fetch inventory with product details from API
     useEffect(() => {
@@ -22,7 +33,7 @@ export default function ProductPage() {
                 const response = await fetch("/api/database/inventories/get");
                 if (response.ok) {
                     const data = await response.json();
-                    console.log("✅ Dane inventory pobrane pomyślnie:", data);
+                    console.log("Dane inventory pobrane pomyślnie:", data);
 
                     // Agregowanie produktów o tym samym product_id
                     const aggregatedProducts = data.reduce((acc, item) => {
@@ -40,10 +51,10 @@ export default function ProductPage() {
                     setProducts(uniqueProducts);
                     setFilteredProducts(uniqueProducts);
                 } else {
-                    console.error("❌ Błąd podczas pobierania danych:", response.statusText);
+                    console.error("Błąd podczas pobierania danych:", response.statusText);
                 }
             } catch (error) {
-                console.error("❌ Błąd podczas pobierania danych:", error);
+                console.error("Błąd podczas pobierania danych:", error);
             } finally {
                 setLoading(false);
             }
@@ -85,12 +96,11 @@ export default function ProductPage() {
 
 
     const addToCart = (product) => {
-        console.log("🛒 Otrzymany produkt do dodania:", product);
-
+        console.log("Otrzymany produkt do dodania:", product);
         const productId = product.product_id?.toString();
 
         if (!productId) {
-            console.error("❌ Nie można dodać produktu do koszyka: brak prawidłowego ID.");
+            console.error("Nie można dodać produktu do koszyka: brak prawidłowego ID.");
             setAlertMessage("Nie można dodać produktu do koszyka: brak prawidłowego ID.");
             return;
         }

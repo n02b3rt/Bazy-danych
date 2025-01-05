@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import MenuSortFilter from "@/app/dashboard/components/MenuSortFilter/MenuSortFilter.js";
-import Cart from "@/app/dashboard/components/Cart/Cart.js";
 import ProductList from "@/app/dashboard/product-page/page.js";
 import './StoreManager.scss';
 

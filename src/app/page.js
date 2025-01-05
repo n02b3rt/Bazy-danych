@@ -28,6 +28,10 @@ export default function LoginPage() {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <div className={styles["form-group"]}>
+        <div>
+            <h1>Login</h1>
+            <form onSubmit={handleLogin}>
+                <div>
                     <label>Email:</label>
                     <input
                         type="email"
@@ -37,6 +41,8 @@ export default function LoginPage() {
                     />
                 </div>
                 <div className={styles["form-group"]}>
+
+                <div>
                     <label>Password:</label>
                     <input
                         type="password"
@@ -52,6 +58,7 @@ export default function LoginPage() {
                     {message}
                 </p>
             )}
+            {message && <p>{message}</p>}
         </div>
     );
 }

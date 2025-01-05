@@ -17,9 +17,10 @@ export async function POST(req) {
         for (let item of orderData.order_items) {
             try {
                 const productId = new ObjectId(item.product_id);
+
                 const quantityChange = isWarehouseManager ? item.quantity : -item.quantity;
 
-                console.log(`🔄 Aktualizacja dla produktu o ID: ${productId}, zmiana ilości: ${quantityChange}`);
+                console.log(`Aktualizacja dla produktu o ID: ${productId}, zmiana ilości: ${quantityChange}`);
 
                 const result = await db.collection("inventories").updateOne(
                     { product_id: productId },
@@ -27,13 +28,14 @@ export async function POST(req) {
                 );
 
                 if (result.matchedCount === 0) {
-                    console.error(`❌ Nie znaleziono produktu o ID: ${item.product_id}`);
+                    console.error(`Nie znaleziono produktu o ID: ${item.product_id}`);
                     return new Response(JSON.stringify({ error: `Nie znaleziono produktu o ID: ${item.product_id}` }), {
                         status: 404,
                     });
                 }
+
             } catch (error) {
-                console.error(`❌ Błąd konwersji ObjectId dla produktu o ID: ${item.product_id}`, error);
+                console.error(`Błąd konwersji ObjectId dla produktu o ID: ${item.product_id}`, error);
                 return new Response(JSON.stringify({ error: `Błąd konwersji ObjectId dla produktu o ID: ${item.product_id}` }), {
                     status: 400,
                 });
@@ -44,7 +46,7 @@ export async function POST(req) {
             status: 200,
         });
     } catch (error) {
-        console.error("❌ Błąd aktualizacji magazynu:", error);
+        console.error("Błąd aktualizacji magazynu:", error);
         return new Response(JSON.stringify({ error: "Błąd serwera" }), {
             status: 500,
         });

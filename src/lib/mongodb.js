@@ -8,7 +8,7 @@ let clientPromise;
 
 if (!process.env.MONGODB_URI) {
     console.log("Mongo URI:", process.env.MONGODB_URI); // Debug
-    throw new Error("Please add your Mongo URI to .env.local");
+    throw new Error("Please status your Mongo URI to .env.local");
 }
 
 if (process.env.NODE_ENV === "development") {

@@ -37,7 +37,7 @@ export async function GET(req) {
                     localField: "user_id",
                     foreignField: "_id",
                     pipeline: [
-                        { $project: { _id: 0, name: 1, surname: 1 } }
+                        { $project: { _id: 1, name: 1, surname: 1 } }
                     ],
                     as: "user"
                 }
@@ -55,7 +55,7 @@ export async function GET(req) {
                     localField: "assigned_worker_id",
                     foreignField: "_id",
                     pipeline: [
-                        { $project: { _id: 0, name: 1, surname: 1 } }
+                        { $project: { _id: 1, name: 1, surname: 1 } }  // Dodajemy _id, name, surname dla assigned_worker
                     ],
                     as: "assigned_worker"
                 }
@@ -93,7 +93,7 @@ export async function GET(req) {
                 $group: {
                     _id: "$_id",
                     user: { $first: "$user" },
-                    assigned_worker: { $first: "$assigned_worker" },
+                    assigned_worker: { $first: "$assigned_worker" },  // Zwracamy przypisanego pracownika
                     order_date: { $first: "$order_date" },
                     completion_date: { $first: "$completion_date" },
                     warehouse_status: { $first: "$warehouse_status" },

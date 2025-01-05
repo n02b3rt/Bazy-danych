@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import "./add-user.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function AddUserPage() {
     const [formData, setFormData] = useState({
@@ -164,7 +165,7 @@ export default function AddUserPage() {
                         <option value="warehouse_manager">Kierownik magazynu</option>
                     </select>
                 </label>
-                <button type="submit">Dodaj użytkownika</button>
+                <Button type="submit">Dodaj użytkownika</Button>
             </form>
         </div>
     );

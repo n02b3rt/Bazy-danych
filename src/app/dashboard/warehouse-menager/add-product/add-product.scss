@@ -1,10 +1,10 @@
 .add-product-page {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 50px 35px;
   background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
   h2 {
     text-align: center;
@@ -13,8 +13,9 @@
 }
 
 .add-product-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, max-content) 1fr;
   gap: 15px;
 
   label {
@@ -39,17 +40,6 @@
   }
 
   button {
-    padding: 10px 15px;
-    background: #007bff;
-    color: #fff;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    align-self: center;
-
-    &:hover {
-      background: #0056b3;
-    }
+    grid-column: 1/-1;
   }
 }

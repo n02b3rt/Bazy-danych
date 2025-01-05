@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "./add-product.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function AddProductPage() {
     const [formData, setFormData] = useState({
@@ -9,13 +10,21 @@ export default function AddProductPage() {
         description: "",
         price: "",
         category: "",
+        quantity: "", // Nowe pole ilości
+        sector: "",   // Nowe pole sektora
     });
     const [categories, setCategories] = useState([]);
+    const [sectors] = useState([
+        "Sector A",
+        "Sector B",
+        "Sector C",
+        "Sector D",
+        "Sector E",
+        "Sector F",
+    ]);
 
-    // Pobieranie kategorii dynamicznie (możesz dodać własne kategorie)
     useEffect(() => {
         const fetchCategories = async () => {
-            // Poniżej kategorie wyciągnięte z danych
             const uniqueCategories = [
                 "telefony",
                 "kable",
@@ -40,21 +49,65 @@ export default function AddProductPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Konwertowanie wartości cena i ilość na liczby
+        let price = parseFloat(formData.price);
+        let quantity = parseInt(formData.quantity, 10);
+
+        // Walidacja, czy wartości są liczbami
+        if (isNaN(price) || isNaN(quantity)) {
+            alert("Proszę wprowadzić poprawne liczby w polach Cena i Ilość.");
+            return;
+        }
+
+        // Zaokrąglanie liczby do dwóch miejsc po przecinku
+        price = price.toFixed(2);  // Zaokrąglamy cenę do 2 miejsc po przecinku
+        quantity = quantity; // Ilość pozostaje liczbą całkowitą
+
+        const formDataWithNumbers = {
+            ...formData,
+            price: parseFloat(price), // Ponownie konwertujemy cenę na liczbę
+            quantity,
+        };
+
         try {
-            const response = await fetch("/api/database/products/add", {
+            // Pierwsze dodanie produktu
+            const productResponse = await fetch("/api/database/products/add", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(formDataWithNumbers),
             });
 
-            if (response.ok) {
-                alert("Produkt został dodany!");
-                setFormData({
-                    name: "",
-                    description: "",
-                    price: "",
-                    category: "",
+            const productData = await productResponse.json();
+
+            if (productResponse.ok) {
+                // Po dodaniu produktu, dodajemy dane do inventory
+                const inventoryData = {
+                    product_id: productData.productId,  // ID produktu, które wróciło z odpowiedzi
+                    quantity: formDataWithNumbers.quantity,
+                    sector: formDataWithNumbers.sector,
+                };
+
+                // Dodanie do magazynu (inventory)
+                const inventoryResponse = await fetch("/api/database/inventories/add", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(inventoryData),
                 });
+
+                if (inventoryResponse.ok) {
+                    alert("Produkt i dane magazynowe zostały dodane!");
+                    setFormData({
+                        name: "",
+                        description: "",
+                        price: "",
+                        category: "",
+                        quantity: "",
+                        sector: "",
+                    });
+                } else {
+                    alert("Błąd podczas dodawania do magazynu.");
+                }
             } else {
                 alert("Błąd podczas dodawania produktu.");
                 console.error("Błąd podczas dodawania produktu.");
@@ -114,7 +167,33 @@ export default function AddProductPage() {
                         ))}
                     </select>
                 </label>
-                <button type="submit">Dodaj produkt</button>
+                <label>
+                    Ilość:
+                    <input
+                        type="number"
+                        name="quantity"
+                        value={formData.quantity}
+                        onChange={handleChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Sektor:
+                    <select
+                        name="sector"
+                        value={formData.sector}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="">Wybierz sektor</option>
+                        {sectors.map((sector) => (
+                            <option key={sector} value={sector}>
+                                {sector}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <Button type="submit">Dodaj produkt</Button>
             </form>
         </div>
     );

@@ -1,12 +1,17 @@
+// src/app/dashboard/suppliers/AddSuppliersPage.js
+
 "use client";
 
 import { useState } from "react";
 import "./add-suppliers.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button.js";
 
 export default function AddSuppliersPage() {
     const [formData, setFormData] = useState({
         name: "",
-        contact: "",
+        contact_person: "", // Nowe pole
+        phone_number: "",    // Nowe pole
+        email: "",           // Nowe pole
         address: "",
     });
 
@@ -31,7 +36,9 @@ export default function AddSuppliersPage() {
                 alert("Dostawca został dodany!");
                 setFormData({
                     name: "",
-                    contact: "",
+                    contact_person: "",
+                    phone_number: "",
+                    email: "",
                     address: "",
                 });
             } else {
@@ -59,11 +66,31 @@ export default function AddSuppliersPage() {
                     />
                 </label>
                 <label>
-                    Kontakt:
+                    Osoba kontaktowa:
                     <input
                         type="text"
-                        name="contact"
-                        value={formData.contact}
+                        name="contact_person"
+                        value={formData.contact_person}
+                        onChange={handleChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Numer telefonu:
+                    <input
+                        type="text"
+                        name="phone_number"
+                        value={formData.phone_number}
+                        onChange={handleChange}
+                        required
+                    />
+                </label>
+                <label>
+                    Email:
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
                         onChange={handleChange}
                         required
                     />
@@ -78,7 +105,7 @@ export default function AddSuppliersPage() {
                         required
                     />
                 </label>
-                <button type="submit">Dodaj dostawcę</button>
+                <Button type="submit">Dodaj dostawcę</Button>
             </form>
         </div>
     );
