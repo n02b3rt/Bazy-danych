@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/auth";
-import QRCodeScanner from "@/app/QRCodeScanner.jsx";
+import styles from "./LoginPage.module.scss";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -24,31 +24,34 @@ export default function LoginPage() {
     };
 
     return (
-        <div>
-            {/*<h1>Login</h1>*/}
-            {/*<form onSubmit={handleLogin}>*/}
-            {/*    <div>*/}
-            {/*        <label>Email:</label>*/}
-            {/*        <input*/}
-            {/*            type="email"*/}
-            {/*            value={email}*/}
-            {/*            onChange={(e) => setEmail(e.target.value)}*/}
-            {/*            required*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*    <div>*/}
-            {/*        <label>Password:</label>*/}
-            {/*        <input*/}
-            {/*            type="password"*/}
-            {/*            value={password}*/}
-            {/*            onChange={(e) => setPassword(e.target.value)}*/}
-            {/*            required*/}
-            {/*        />*/}
-            {/*    </div>*/}
-            {/*    <button type="submit">Login</button>*/}
-            {/*</form>*/}
-            {/*{message && <p>{message}</p>}*/}
-            <QRCodeScanner/>
+        <div className={styles.container}>
+            <h1>Login</h1>
+            <form onSubmit={handleLogin}>
+                <div className={styles["form-group"]}>
+                    <label>Email:</label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles["form-group"]}>
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            {message && (
+                <p className={message.includes("successful") ? styles.success : styles.error}>
+                    {message}
+                </p>
+            )}
         </div>
     );
 }
