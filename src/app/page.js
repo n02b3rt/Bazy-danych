@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/auth";
+import styles from "./LoginPage.module.scss";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -23,6 +24,10 @@ export default function LoginPage() {
     };
 
     return (
+        <div className={styles.container}>
+            <h1>Login</h1>
+            <form onSubmit={handleLogin}>
+                <div className={styles["form-group"]}>
         <div>
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
@@ -35,6 +40,8 @@ export default function LoginPage() {
                         required
                     />
                 </div>
+                <div className={styles["form-group"]}>
+
                 <div>
                     <label>Password:</label>
                     <input
@@ -46,8 +53,12 @@ export default function LoginPage() {
                 </div>
                 <button type="submit">Login</button>
             </form>
+            {message && (
+                <p className={message.includes("successful") ? styles.success : styles.error}>
+                    {message}
+                </p>
+            )}
             {message && <p>{message}</p>}
-            {/*<QRCodeScanner/>*/}
         </div>
     );
 }
