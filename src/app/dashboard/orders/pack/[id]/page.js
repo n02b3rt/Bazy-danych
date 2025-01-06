@@ -52,10 +52,10 @@ const OrderDetails = () => {
         doc.setFont("helvetica", "bold");
         doc.text("Nadawca (Firma):", 10, 20); // Pogrubiony tytuł "Nadawca"
         doc.setFont("helvetica", "normal"); // Normalna czcionka dla danych
-        doc.text("Magazyn: XYZ Magazyn", 10, 30);
-        doc.text("Adres magazynu: ul. Magazynowa 1, 00-001 Miasto", 10, 40);
-        doc.text("Firma: Firma XYZ Sp. z o.o.", 10, 50);
-        doc.text("NIP: 1234567890", 10, 60);
+        doc.text("Magazyn: GSM-WAREHOUSE Magazyn", 10, 30);
+        doc.text("Adres magazynu: Lipinki Łużyckie ul.Łąączna 43 68-213", 10, 40);
+        doc.text("Firma: GSM-WAREHOUSE Sp. z o.o.", 10, 50);
+        doc.text("NIP: 5384508387", 10, 60);
 
         // Mniejsza linia oddzielająca
         doc.setLineWidth(0.2); // Zmniejszamy grubość linii
@@ -111,7 +111,8 @@ const OrderDetails = () => {
                 <div>
                     <h2>Status: {order.warehouse_status}</h2>
                     <h3>Zamówienie z dnia: {new Date(order.order_date).toLocaleDateString()}</h3>
-                    <h3>Przydzielony pracownik: {order.assigned_worker ? `${order.assigned_worker.name} ${order.assigned_worker.surname}` : "Brak pracownika"}</h3>
+                    <h3>Przydzielony
+                        pracownik: {order.assigned_worker ? `${order.assigned_worker.name} ${order.assigned_worker.surname}` : "Brak pracownika"}</h3>
 
                     {/* Wyświetlamy dane użytkownika */}
                     {user && (
@@ -120,10 +121,10 @@ const OrderDetails = () => {
                                 <h3>Nadawca (Firma):</h3>
                             </div>
                             <div className="section-content">
-                                <p>Magazyn: XYZ Magazyn</p>
-                                <p>Adres magazynu: ul. Magazynowa 1, 00-001 Miasto</p>
-                                <p>Firma: Firma XYZ Sp. z o.o.</p>
-                                <p>NIP: 1234567890</p>
+                                <p>Magazyn: GSM-WAREHOUSE Magazyn</p>
+                                <p>Adres magazynu: Lipinki Łużyckie ul.Łąączna 43 68-213</p>
+                                <p>Firma: GSM-WAREHOUSE Sp. z o.o.</p>
+                                <p>NIP: 5384508387</p>
                             </div>
 
                             <div className="section-divider"></div>
@@ -140,21 +141,23 @@ const OrderDetails = () => {
                             </div>
                         </div>
                     )}
+                    <div className="section-content">
+                        <h3>Przedmioty w zamówieniu:</h3>
+                        <ul>
+                            {order.order_items.map((item) => (
+                                <li key={item.product_id}>
+                                    Produkt: {item.product.name}, Ilość: {item.quantity}
+                                </li>
+                            ))}
+                        </ul>
 
-                    <h3>Przedmioty w zamówieniu:</h3>
-                    <ul>
-                        {order.order_items.map((item) => (
-                            <li key={item.product_id}>
-                                Produkt: {item.product.name}, Ilość: {item.quantity}
-                            </li>
-                        ))}
-                    </ul>
+                        {/* Przycisk do generowania PDF i natychmiastowego drukowania */}
+                        <button onClick={generateAndPrintPDF}>Generuj i Drukuj PDF</button>
 
-                    {/* Przycisk do generowania PDF i natychmiastowego drukowania */}
-                    <button onClick={generateAndPrintPDF}>Generuj i Drukuj PDF</button>
+                        {/* Przycisk do zakończenia zamówienia */}
+                        <button onClick={handleComplete}>Zakończ zamówienie</button>
+                    </div>
 
-                    {/* Przycisk do zakończenia zamówienia */}
-                    <button onClick={handleComplete}>Zakończ zamówienie</button>
                 </div>
             ) : (
                 <p>Ładowanie zamówienia...</p>

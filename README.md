@@ -271,7 +271,7 @@ db.createCollection("deliveries", {
 Reprezentuje użytkowników systemu.
 
 ```javascript
-db.createCollection("employees", {
+db.createCollection("users", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
