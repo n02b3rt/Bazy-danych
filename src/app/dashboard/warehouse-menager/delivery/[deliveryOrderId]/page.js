@@ -12,13 +12,6 @@ const DeliveryOrderPage = () => {
     const [selectedSupplier, setSelectedSupplier] = useState(null);
     const [deliveryDate, setDeliveryDate] = useState("");
     const router = useRouter();
-    const loggedInUser = useContext(UserContext); // Pobieramy dane o zalogowanym użytkowniku
-
-    // Jeśli użytkownik nie ma roli 'warehouse_manager', przekierowujemy go na stronę z błędem
-    if (loggedInUser?.role !== "warehouse_manager") {
-        router.push("/dashboard"); // Możemy tutaj przekierować użytkownika do dashboard
-        return null;
-    }
 
     // Pobieramy listę dostawców
     useEffect(() => {
