@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/lib/auth";
 import styles from "./LoginPage.module.scss";
+import Button from "@/app/dashboard/components/ui/Button/Button";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -28,10 +29,6 @@ export default function LoginPage() {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <div className={styles["form-group"]}>
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <div>
                     <label>Email:</label>
                     <input
                         type="email"
@@ -41,8 +38,6 @@ export default function LoginPage() {
                     />
                 </div>
                 <div className={styles["form-group"]}>
-
-                <div>
                     <label>Password:</label>
                     <input
                         type="password"
@@ -51,14 +46,13 @@ export default function LoginPage() {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <Button type="submit">Login</Button>
             </form>
             {message && (
                 <p className={message.includes("successful") ? styles.success : styles.error}>
                     {message}
                 </p>
             )}
-            {message && <p>{message}</p>}
         </div>
     );
 }
