@@ -1,5 +1,9 @@
 .employeeList{
   width: 1200px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px 40px;
   &__menu{
     font-size: 32px;
     margin-bottom: 20px;
@@ -11,10 +15,9 @@
     }
   }
   &__container{
-    background: #e3e3e3;
     display: grid;
     row-gap: 10px;
-    padding: 20px;
+    padding: 20px 0;
   }
   &__controls {
     display: flex;

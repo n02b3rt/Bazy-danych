@@ -5,6 +5,7 @@
   column-gap: 40px;
   align-items: center;
   grid-template-columns:minmax(300px,1fr) 1fr 1fr 1fr max-content;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
   button{
     padding: 5px 20px;
   }

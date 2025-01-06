@@ -1,8 +1,12 @@
+.productListPage{
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  padding: 20px 40px;
+}
 .productList{
   width: 1200px;
   list-style: none;
-  padding: 20px;
-  background-color: #e3e3e3;
   display: grid;
   row-gap: 10px;
 
@@ -20,8 +24,3 @@
   grid-template-columns: max-content max-content;
   margin-bottom: 20px;
 }
-
-//.filters select {
-//  //padding: 5px;
-//  //font-size: 16px;
-//}

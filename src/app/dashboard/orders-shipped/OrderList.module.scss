@@ -5,7 +5,7 @@
   margin-top: 30px;
 
   .orderItem {
-    background: #f9f9f9;
+    background: #ffffff;
     padding: 15px;
     border: 1px solid #ddd;
     margin-bottom: 10px;
@@ -14,11 +14,13 @@
     .orderDetails {
       display: grid;
       grid-template-columns: repeat(4, minmax(150px, 266.6px)) max-content;
+      align-items: center;
       p {
         margin: 5px 0;
         font-size: 16px;
       }
       button{
+        margin-top: 0;
         padding: 5px 20px;
       }
     }

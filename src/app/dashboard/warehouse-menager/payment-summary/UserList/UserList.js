@@ -18,7 +18,7 @@ export default function UserList({ users }) {
                     <div>{user.address}</div>
                     <div>{user.personal_id}</div>
                     <div>{user.bank_account}</div>
-                    <div>{user.salary}</div>
+                    <div>{user.salary} PLN</div>
                 </div>
             ))}
         </div>

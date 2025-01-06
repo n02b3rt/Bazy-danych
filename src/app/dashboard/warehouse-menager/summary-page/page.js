@@ -81,8 +81,8 @@ const SummaryPage = () => {
                 <MonthlySummary totalRevenue={totalRevenue} totalExpenses={totalExpenses}/>
                 <RevenueChart totalRevenue={totalRevenue} totalExpenses={totalExpenses}/>
             </div>
-            <h2>Lista Zamówień</h2>
             <div className="orders-filter">
+                <h2>Lista Zamówień</h2>
                 <label htmlFor="sortBy">Sortuj po:</label>
                 <select id="sortBy" value={sortBy} onChange={handleSortChange}>
                     <option value="date">Dacie zamówienia</option>
