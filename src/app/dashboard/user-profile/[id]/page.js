@@ -48,7 +48,6 @@ export default function UserProfilePage() {
                 "name",
                 "surname",
                 "email",
-                "password_hash",
                 "date_of_birth",
                 "start_date",
                 "personal_id",
