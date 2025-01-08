@@ -37,8 +37,6 @@ const ShowOrders = () => {
     }, []);
 
     useEffect(() => {
-        if (!loggedInUser) return;
-
         let filtered = orders;
 
         if (loggedInUser.role === "warehouse_manager") {

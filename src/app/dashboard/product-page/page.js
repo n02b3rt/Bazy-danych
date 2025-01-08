@@ -8,7 +8,6 @@ import {UserContext} from "@/app/dashboard/layout.js";
 import { useRouter } from "next/navigation";
 import "./ProductList.scss";
 
-
 export default function ProductPage() {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -122,7 +121,7 @@ export default function ProductPage() {
                     const maxAddable = availableQuantity - existingProduct.quantity;
                     console.log(`maxAddable: ${maxAddable}`);
 
-                    if (maxAddable > 0) {
+                    if (maxAddable > 0 ) {
                         setAlertMessage(`Można dodać maksymalnie jeszcze ${maxAddable} szt. do koszyka.`);
                         return prevCart.map((item) =>
                             item.id === productId ? { ...item, quantity: availableQuantity } : item
@@ -137,7 +136,7 @@ export default function ProductPage() {
                     item.id === productId ? { ...item, quantity: newQuantity } : item
                 );
             } else {
-                if (productQuantity > availableQuantity) {
+                if (productQuantity > availableQuantity && loggedInUser.role !== "warehouse_manager") {
                     setAlertMessage(`Można dodać maksymalnie ${availableQuantity} szt. do koszyka.`);
                     return [
                         ...prevCart,

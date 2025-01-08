@@ -22,7 +22,6 @@ export async function GET() {
     }
 }
 
-// Obsługa POST - Dodanie nowego dostawcy
 export async function POST(request) {
     try {
         const { name, contact_person, phone_number, email, address } = await request.json();

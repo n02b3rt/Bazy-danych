@@ -1,4 +1,3 @@
-// src/app/api/database/inventory/find-sector/route.js
 import { ObjectId } from "mongodb";
 import clientPromise from "@/lib/mongodb";
 

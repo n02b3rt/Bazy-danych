@@ -16,9 +16,9 @@ const OrdersShippedPage = () => {
     const loggedInUser = useContext(UserContext); // Zalogowany użytkownik
     const router = useRouter();
 
+
     useEffect(() => {
         if (loggedInUser?.role === "warehouse_worker") {
-            // Jeśli użytkownik nie jest warehouse_manager, przekierowujemy go na stronę główną
             router.push("/dashboard");
         }
     }, [loggedInUser, router]);

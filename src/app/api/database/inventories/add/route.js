@@ -1,5 +1,3 @@
-// src/app/api/database/inventories/add.js
-
 import { ObjectId } from "mongodb";
 import clientPromise from "@/lib/mongodb";
 

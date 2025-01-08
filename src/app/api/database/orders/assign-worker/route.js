@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import clientPromise from "@/lib/mongodb"; // Upewnij się, że masz poprawnie zainstalowane i skonfigurowane połączenie z MongoDB.
+import clientPromise from "@/lib/mongodb";
 
 export async function PATCH(request) {
     try {

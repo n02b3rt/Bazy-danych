@@ -7,6 +7,7 @@ import { UserContext } from "@/app/dashboard/layout.js"; // Import kontekstu uż
 const OrderList = ({ deliveries, onDeliveryClick }) => {
     const loggedInUser = useContext(UserContext); // Zalogowany użytkownik
 
+    // warunek ? true : false;
     return (
         <div>
             {deliveries.length === 0 ? (

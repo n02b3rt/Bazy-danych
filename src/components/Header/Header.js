@@ -49,7 +49,7 @@ export default function Header({ email, role, userId }) {
                 aria-label="Przejdź na stronę główną"
                 style={{ cursor: "pointer" }}
             >
-                GSM-WH.com
+                GSM-WH.pl
             </p>
 
             {/* Hamburger Icon for mobile */}
